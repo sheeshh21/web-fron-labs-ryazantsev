@@ -6,7 +6,7 @@ body {
 }
 main {
     background-color: bisque;
-    color: darkblue;
+    color: rgb(255, 60, 0);
     font-family: Arial;
     margin: 0px;
 }
@@ -27,4 +27,22 @@ footer {
 }
 a {
     text-decoration: none;
+}
+a:link {
+    opacity: 0.5;
+    background-color: #1d95b988;
+}
+a:visited {
+    opacity: 0.5;
+    color: hsla(270, 100%, 0%, 0.714);
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+    background-color: hwb(0 65% 7% / 0.329);
+    text-shadow: 10px 10px 10px black;
+}
+a:active {
+    color: black;
+    opacity: 0.3;
 }
