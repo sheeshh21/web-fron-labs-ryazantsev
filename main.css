@@ -23,7 +23,12 @@ footer {
     font-family: Arial;
     margin: 0px;
     padding: 15px;
-    text-align: right
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
 }
 a {
     text-decoration: none;
@@ -47,4 +52,27 @@ a:hover {
 a:active {
     color: black;
     opacity: 0.3;
+}
+div.menu {
+    border: 7px solid;
+    border-radius: 30px;
+    width: 250px;
+    margin: auto;
+    background-color: #bee6ab;
+    box-shadow: 12px 12px 30px hsla(0, 0%, 0%, 0.747);
+}
+div.menu:hover {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px #000000;
+}
+h1.lab {
+    text-align: center;
+    text-shadow: 5px 5px 10px #000000b0;
+
+}
+h1.lab:hover {
+    color: hwb(241 6% 41%);
+}
+main {
+    margin: 0px 0px 45px
 }
