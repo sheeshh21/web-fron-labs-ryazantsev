@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 4.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+       
+        .container {
+            text-align: center;
+            border: 5px solid black;
+            border-radius: 80px;
+            margin-left: 700px;
+            margin-right: 700px;
+            margin-top: 230px;
+            height: 250px;
+            background-color: #9d85b4;
+        }
+
+        .progress-bar {
+            width: 380px;
+            height: 32px;
+            background-color: white;
+            border-radius: 5px;
+            border: 2px solid black;
+            position: relative;
+            margin: auto;
+            margin-top: 35px;
+            margin-bottom: 25px;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: hsla(195, 70%, 62%, 0.658);
+            width: 0;
+            transition: 0.1s;
+            border-radius: 3px;
+        }
+
+        .stepen {
+            color: black;
+            font-size: 36px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 30px;
+        }
+
+        .hold-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: hsl(261, 38%, 51%);
+            color: black;
+            font-size: 17px;
+            font-family: 'Times New Roman', Times, serif;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: 0.3s
+            
+        }
+
+        .hold-button:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 4
+    </header>
+    <main>
+        <div class="container">
+            <div class="stepen"><b>Степень прогресса</b></div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <button id="holdButton" class="hold-button">Нажмите и удерживайте</button>
+        </div>
+        <script>
+            const holdButton = document.getElementById('holdButton');
+            const progress = document.getElementById('progress');
+    
+            let progressInterval;
+    
+            holdButton.addEventListener('mousedown', () => {
+                holdButton.style.boxShadow = 'none';
+                let width = 0;
+
+                const duration = 5000; 
+                const intervalDelay = 50; 
+    
+                const steps = duration / intervalDelay;
+    
+                progressInterval = setInterval(() => {
+                    if (width >= 100) {
+                        clearInterval(progressInterval);
+                    } else {
+                        width += 100 / steps; 
+                        progress.style.width = width + '%';
+                    }
+                },  intervalDelay);
+            });
+    
+            holdButton.addEventListener('mouseup', () => {
+                clearInterval(progressInterval);
+                holdButton.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+                progress.style.width = '0%';
+            });
+
+            holdButton.addEventListener('mouseleave', () => {
+                clearInterval(progressInterval);
+                holdButton.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
+                progress.style.width = '0%';
+            });
+        </script>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
