@@ -13,23 +13,23 @@
         .container {
             text-align: center;
             border: 5px solid black;
-            border-radius: 80px;
-            margin-left: 700px;
-            margin-right: 700px;
-            margin-top: 230px;
-            height: 250px;
-            background-color: #9d85b4;
+            border-radius: 150px;
+            margin-left: 600px;
+            margin-right: 600px;
+            margin-top: 170px;
+            height: 360px;
+            background-color: hsla(270, 32%, 55%, 0.699);
         }
 
         .progress-bar {
-            width: 380px;
-            height: 32px;
+            width: 500px;
+            height: 42px;
             background-color: white;
             border-radius: 5px;
-            border: 2px solid black;
+            border: 3px solid black;
             position: relative;
             margin: auto;
-            margin-top: 35px;
+            margin-top: 50px;
             margin-bottom: 25px;
         }
         
@@ -43,22 +43,24 @@
 
         .stepen {
             color: black;
-            font-size: 36px;
+            font-size: 58px;
             font-family: 'Times New Roman', Times, serif;
-            margin-top: 30px;
+            margin-top: 45px;
+            font-weight: bold;
         }
 
         .hold-button {
-            padding: 10px 20px;
-            border: 2px solid;
+            padding: 15px 25px;
+            border: 3px solid;
             border-radius: 10px;
             background-color: hsl(261, 38%, 51%);
             color: black;
-            font-size: 17px;
+            font-size: 23px;
             font-family: 'Times New Roman', Times, serif;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: 0.3s
+            transition: 0.3s;
+            margin-top: 15px;
         }
 
         .hold-button:hover {
@@ -73,7 +75,7 @@
     </header>
     <main>
         <div class="container">
-            <div class="stepen"><b>Степень прогресса</b></div>
+            <div class="stepen">Степень прогресса</div>
             <div class="progress-bar">
                 <div class="progress" id="progress"></div>
             </div>

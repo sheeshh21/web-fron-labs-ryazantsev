@@ -12,24 +12,29 @@ main {
     font-size: 20px;
 }
 header {
-    background-color: hwb(261 46% 29% / 0.87);
+    background-color: rgb(140, 117, 181);
     color: black;
     font-family: Arial;
     margin: 0px;
-    padding: 15px;
+    padding: 22px;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
 }
 footer {
-    background-color: hwb(261 46% 29% / 0.87);
+    background-color: hwb(262 46% 29%);
     color: black;
     font-family: Arial;
     margin: 0px;
-    padding: 15px;
+    padding: 22px;
     text-align: right;
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
 }
 a {
     text-decoration: none;
