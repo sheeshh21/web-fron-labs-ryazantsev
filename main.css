@@ -6,19 +6,20 @@ body {
 }
 main {
     background-color: lightblue;
-    color: rgb(255, 60, 0);
+    color: rgb(125, 92, 181);
     font-family: Arial;
     margin: 0px;
+    font-size: 20px;
 }
 header {
-    background-color: lightpink;
+    background-color: hwb(261 46% 29% / 0.87);
     color: black;
     font-family: Arial;
     margin: 0px;
     padding: 15px;
 }
 footer {
-    background-color: lightpink;
+    background-color: hwb(261 46% 29% / 0.87);
     color: black;
     font-family: Arial;
     margin: 0px;
@@ -56,10 +57,12 @@ a:active {
 div.menu {
     border: 7px solid;
     border-radius: 30px;
-    width: 250px;
+    width: 300px;
     margin: auto;
-    background-color: #bee6ab;
+    background-color: #ddfdb375;
     box-shadow: 12px 12px 30px hsla(0, 0%, 0%, 0.747);
+    font-size: 21px;
+    
 }
 div.menu:hover {
     background-color: rgb(255, 255, 255);

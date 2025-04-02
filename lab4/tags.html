@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 4.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .overflow {
+            font-size: 170px;
+            position: absolute;
+            left: 600px;
+            top: 300px;
+            color: antiquewhite;
+            rotate: 20deg;
+            transition: 0.5s;
+            
+        }
+        
+        .overflow:hover {
+            font-size: 200px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .header {
+            font-size: 100px;
+            position: absolute;
+            left: 300px;
+            top: 680px;
+            color: #063b3b;
+            rotate: -15deg;
+            transition: 0.5s;
+            
+        }
+
+        .header:hover {
+            font-size: 130px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 15deg;
+        }
+
+        .footer {
+            font-size: 170px;
+            position: absolute;
+            left: 200px;
+            top: 450px;
+            color: rgb(10, 112, 78);
+            rotate: 80deg;
+            transition: 0.5s;
+        }
+
+        .footer:hover {
+            font-size: 200px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 1deg;
+        }
+
+        .margin {
+            font-size: 100px;
+            position: absolute;
+            left: 600px;
+            top: 120px;
+            color: bisque;
+            rotate: -50deg;
+            transition: 0.5s;
+        }
+
+        .margin:hover {
+            font-size: 130px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: -40deg;
+
+        }
+
+        .padding {
+            font-size: 50px;
+            position: absolute;
+            left: 700px;
+            top: 520px;
+            color: black;
+            rotate: -30deg;
+            transition: 0.5s;
+        }
+        
+        .padding:hover {
+            font-size: 80px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .background {
+            font-size: 90px;
+            position: absolute;
+            left: 540px;
+            top: 700px;
+            color: blue;
+            rotate: 30deg;
+            transition: 0.5s;
+        }
+        
+        .background:hover {
+            font-size: 120px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 20deg;
+        }
+
+        .color {
+            font-size: 65px;
+            position: absolute;
+            left: 290px;
+            top: 630px;
+            color: blueviolet;
+            rotate: 180deg;
+            transition: 0.5s;
+        }
+        
+        .color:hover {
+            font-size: 95px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .main {
+            font-size: 110px;
+            position: absolute;
+            left: 1200px;
+            top: 300px;
+            color: brown;
+            rotate: -115deg;
+            transition: 0.5s;
+        }
+        
+        .main:hover {
+            font-size: 140px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: -100deg;
+        }
+
+        .border {
+            font-size: 115px;
+            position: absolute;
+            left: 1300px;
+            top: 100px;
+            color: #9b6115;
+            rotate: 30deg;
+            transition: 0.5s;
+        }
+        
+        .border:hover {
+            font-size: 145px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 35deg;
+        }
+
+        .shadow {
+            font-size: 120px;
+            position: absolute;
+            left: 1400px;
+            top: 600px;
+            color: cadetblue;
+            rotate: 20deg;
+            transition: 0.5s;
+        }
+
+        .shadow:hover {
+            font-size: 150px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 25deg;
+        }
+        
+        .display {
+            font-size: 90px;
+            position: absolute;
+            left: 1100px;
+            top: 750px;
+            color: chartreuse;
+            rotate: -20deg;
+            transition: 0.5s;
+        }
+        
+        .display:hover {
+            font-size: 120px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: -25deg;
+        }
+
+        .position {
+            font-size: 70px;
+            position: absolute;
+            left: 1000px;
+            top: 500px;
+            color: chocolate;
+            rotate: 15deg;
+            transition: 0.5s;
+        }
+
+        .position:hover {
+            font-size: 100px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 30deg;
+        }
+        
+        .relative {
+            font-size: 70px;
+            position: absolute;
+            left: 1500px;
+            top: 300px;
+            color: darkkhaki;
+            rotate: -10deg;
+            transition: 0.5s;
+        }
+
+        .relative:hover {
+            font-size: 100px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+        }
+        
+        .absolute {
+            font-size: 170px;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            color: darksalmon;
+            rotate: 50deg;
+            transition: 0.5s;
+        }
+
+        .absolute:hover {
+            font-size: 200px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 60deg;
+        }
+        
+        .transition {
+            font-size: 160px;
+            position: absolute;
+            left: 900px;
+            top: 100px;
+            color: #345207;
+            rotate: 10deg;
+            transition: 0.5s;
+        }    
+
+        .transition:hover {
+            font-size: 190px;
+            text-shadow: 5px 5px 8px black;
+            transition: 0.5s;
+            z-index: 1;
+            rotate: 370deg;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 4
+    </header>
+    <main>
+        <div class="overflow">overflow</div>
+        <div class="header">header</div>
+        <div class="footer">footer</div>
+        <div class="margin">margin</div>
+        <div class="padding">padding</div>
+        <div class="background">background</div>
+        <div class="color">color</div>
+        <div class="main">main</div>
+        <div class="border">border</div>
+        <div class="shadow">shadow</div>
+        <div class="display">display</div>
+        <div class="position">position</div>
+        <div class="relative">relative</div>
+        <div class="absolute">absolute</div>
+        <div class="transition">transition</div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
