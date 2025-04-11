@@ -19,6 +19,26 @@
             alert(' Сумма ' + a + ' и ' + b + ' равна ' + result)
         }
 
+        function showDiff() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b;
+            alert(' Разность ' + a + ' и ' + b + ' равна ' + result)
+        }
+
+        function showMult() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b;
+            alert(' Разность ' + a + ' и ' + b + ' равна ' + result)
+        }
+
         function showAuthor() {
             let author = "Автор страницы: \nРязанцев Александр Алексеевич";
             alert(author);
@@ -41,6 +61,28 @@
             border-radius: 20px;
             cursor: pointer;
         }
+
+        .num {
+            margin-left: 40%;
+            font-size: 35px;
+            color: black;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 5px #0000006f;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .vvod {
+            height: 38px;
+            margin-top: 10px;
+            border: 2px solid;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 180px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.615);
+            cursor: pointer;
+        }
+    
     </style>
 </head>
 <body>
@@ -48,9 +90,11 @@
         НГТУ, ФБ, Лабораторная 5
     </header>
     <main>
-        <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
-        <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+        <label class="num">Первое число: <input class="vvod" type="number" value="" id="numberA"></label><br>
+        <label class="num">Второе число: <input class="vvod" type="number" value="" id="numberB"></label><br>
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
+        <div class="message" onclick="showDiff()">Найти разность чисел</div>
+        <div class="message" onclick="showMult()">Найти произведение чисел</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
     <footer ondblclick="showFooter()" style="cursor: pointer">
