@@ -36,7 +36,42 @@
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a * b;
-            alert(' Разность ' + a + ' и ' + b + ' равна ' + result)
+            alert(' Произведение ' + a + ' и ' + b + ' равна ' + result)
+        }
+
+        function showDiv() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            if (b == 0) {
+                alert("На 0 делить нельзя!");
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = 'red';
+                inputB.style.borderColor = 'red';
+                return;
+            }
+
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+
+            if (isNaN(b)) {
+                alert('Введите числовое значение в первое поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
+            let result = a / b;
+            alert(' Отношение ' + a + ' и ' + b + ' равно ' + result)
         }
 
         function showAuthor() {
@@ -60,6 +95,8 @@
             color: black;
             border-radius: 20px;
             cursor: pointer;
+            margin-left: 150px;
+            margin-top: 30px;
         }
 
         .num {
@@ -82,6 +119,7 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.615);
             cursor: pointer;
         }
+
     
     </style>
 </head>
@@ -95,6 +133,7 @@
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
         <div class="message" onclick="showDiff()">Найти разность чисел</div>
         <div class="message" onclick="showMult()">Найти произведение чисел</div>
+        <div class="message" onclick="showDiv()">Найти отношение чисел</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
     <footer ondblclick="showFooter()" style="cursor: pointer">
