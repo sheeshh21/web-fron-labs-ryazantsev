@@ -84,6 +84,15 @@
             alert(footer);
         }
 
+        function changeOutput(buttonNum, backColor, textColor, border, radius) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.border = border;
+            output.style.borderRadius = radius;
+        }
+
     </script>
     <style>
         .message {
@@ -95,8 +104,11 @@
             color: black;
             border-radius: 20px;
             cursor: pointer;
-            margin-left: 150px;
             margin-top: 30px;
+        }
+
+        .message1 {
+            margin-left: 250px;
         }
 
         .num {
@@ -120,7 +132,31 @@
             cursor: pointer;
         }
 
-    
+        #output {
+            border: 3px solid;
+            height: 50px;
+            width: 400px;
+            text-align: center;
+            margin: 3px auto;
+            border-radius: 12px;
+            box-shadow: 3px 3px 6px #000000a9;
+            
+        }
+
+        .knopka {
+            background-color: lightyellow;
+            height: 30px;
+            width: 90px;
+            border: 3px solid rgb(247, 114, 134);
+            border-radius: 12px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .knopka1 {
+            margin-left: 770px;
+        }
+
     </style>
 </head>
 <body>
@@ -130,11 +166,18 @@
     <main>
         <label class="num">Первое число: <input class="vvod" type="number" value="" id="numberA"></label><br>
         <label class="num">Второе число: <input class="vvod" type="number" value="" id="numberB"></label><br>
-        <div class="message" onclick="showSum()">Найти сумму чисел</div>
+        <div class="message message1" onclick="showSum()">Найти сумму чисел</div>
         <div class="message" onclick="showDiff()">Найти разность чисел</div>
         <div class="message" onclick="showMult()">Найти произведение чисел</div>
         <div class="message" onclick="showDiv()">Найти отношение чисел</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <div>
+            <input class="knopka1 knopka" type="button" value="Кнопка 1" onclick="changeOutput(1, 'lightyellow', 'darkgreen', '5px solid', '12px')">
+            <input class="knopka" type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', '3px dotted', '20px')">
+            <input class="knopka" type="button" value="Кнопка 3" onclick="changeOutput(3, 'lightpink', 'red', '10px dashed', '5px')">
+            <input class="knopka" type="button" value="Кнопка 4" onclick="changeOutput(4, 'lightgreen', 'black', '12px double', '15px')">
+        </div>
+        <div id="output"></div>
     </main>
     <footer ondblclick="showFooter()" style="cursor: pointer">
         &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
