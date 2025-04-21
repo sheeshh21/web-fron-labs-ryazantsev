@@ -15,8 +15,24 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+            if (isNaN(b)) {
+                alert('Введите числовое значение во второе поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
             let result = a + b;
-            alert(' Сумма ' + a + ' и ' + b + ' равна ' + result)
+            alert(' Сумма ' + a + ' и ' + b + ' равна ' + result);
+
         }
 
         function showDiff() {
@@ -25,6 +41,21 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+            if (isNaN(b)) {
+                alert('Введите числовое значение во второе поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
             let result = a - b;
             alert(' Разность ' + a + ' и ' + b + ' равна ' + result)
         }
@@ -35,6 +66,22 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+
+            if (isNaN(b)) {
+                alert('Введите числовое значение во второе поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
             let result = a * b;
             alert(' Произведение ' + a + ' и ' + b + ' равна ' + result)
         }
@@ -61,7 +108,7 @@
             }
 
             if (isNaN(b)) {
-                alert('Введите числовое значение в первое поле!');
+                alert('Введите числовое значение во второе поле!');
                 inputB.style.color = 'red';
                 return;
             }
@@ -151,6 +198,7 @@
             border-radius: 12px;
             font-weight: bold;
             margin-top: 20px;
+            cursor: pointer;
         }
 
         .knopka1 {
