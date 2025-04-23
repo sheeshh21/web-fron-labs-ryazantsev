@@ -15,6 +15,23 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+
+            if (isNaN(b)) {
+                alert('Введите числовое значение в первое поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
             let result = a + b;
             alert(' Сумма ' + a + ' и ' + b + ' равна ' + result)
         }
@@ -25,6 +42,23 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+
+            if (isNaN(b)) {
+                alert('Введите числовое значение в первое поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
             let result = a - b;
             alert(' Разность ' + a + ' и ' + b + ' равна ' + result)
         }
@@ -35,6 +69,23 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+            
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+
+            if (isNaN(b)) {
+                alert('Введите числовое значение в первое поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
             let result = a * b;
             alert(' Произведение ' + a + ' и ' + b + ' равна ' + result)
         }
@@ -134,23 +185,23 @@
 
         #output {
             border: 3px solid;
-            height: 50px;
+            height: 85px;
             width: 400px;
             text-align: center;
             margin: 3px auto;
             border-radius: 12px;
             box-shadow: 3px 3px 6px #000000a9;
-            
         }
 
         .knopka {
-            background-color: lightyellow;
+            background-color: hwb(263 55% 26% / 0.822);
             height: 30px;
             width: 90px;
-            border: 3px solid rgb(247, 114, 134);
+            border: 3px solid black;
             border-radius: 12px;
             font-weight: bold;
             margin-top: 20px;
+            cursor: pointer;
         }
 
         .knopka1 {
