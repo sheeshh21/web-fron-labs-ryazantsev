@@ -1,73 +1,73 @@
 <!DOCTYPE html>
- <html lang="ru">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Рязанцев Александр Алексеевич. Лабораторная 5.</title>
-     <link rel="stylesheet" href="../main.css">
-     <link rel="icon" href="../favicon-16x16.png">
-     <link rel="icon" href="../favicon-32x32.png">
-     <script>
-         function dopFilter(event) {
-             let x = this.event.x;
-             let image = document.getElementById('blurImage');
- 
-             if (event.ctrlKey) {
-                 filterValue = (x / image.offsetWidth) * 100;
-                 filterName = 'sepia';
-                 image.style.filter = 'sepia(' + filterValue + '%)';
-             } else if (event.altKey) {
-                 filterValue = (x / image.offsetWidth) * 100;
-                 filterName = 'grayscale';
-                 image.style.filter = 'grayscale(' + filterValue + '%)';
-             } else if (event.shiftKey) {
-                 filterValue = (x / image.offsetWidth) * 360;
-                 filterName = 'hue-rotate';
-                 image.style.filter = 'hue-rotate(' + filterValue + 'deg)';
-             } else {
-                 filterValue = (x / image.offsetWidth) * 20;
-                 filterName = 'blur';
-                 image.style.filter = 'blur(' + filterValue + 'px)';
-             }
-             document.getElementById('filterName').innerText = 'Фильтр: ' + filterName;
-             document.getElementById('filterValue').innerText = 'Значение: ' + filterValue.toFixed(2) 
-         }
-     </script>
-     <style>
-         .img {
-             height: 100%;
-             width: 80%;
-             margin-left: 200px;
-             border: 7px solid black;
-             border-radius: 30px;
-         }
- 
-         .info {
-             text-align: center;
-             font-size: 15px;
-             color: black;
-             font-weight: bold;
-         }
-     </style>
- </head>
- <body>
-     <header>
-         НГТУ, ФБ, Лабораторная 5
-     </header>
-     <main>
-         <div class="info">
-             <p>Перемещайте курсор мыши по картинке для изменения фильтра (чем правее, тем сильнее эффект).</p>
-             <p>Также нажимайте клавиши Ctrl, Alt, Shift для активации других фильтров.</p>
-         </div>
-         <div><img src="1111.jpg" id="blurImage" class="img" onmousemove="dopFilter(event)"></div>
-         <div id="filterInfo" class="info">
-             <p id="filterName">Фильтр: blur</p>
-             <p id="filterValue">Значение: 0px</p>
-         </div>
-     </main>
-     <footer>
-         &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
-     </footer>
- </body>
- </html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 5.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function dopFilter(event) {
+            let x = this.event.x;
+            let image = document.getElementById('blurImage');
+
+            if (event.ctrlKey) {
+                filterValue = (x / image.offsetWidth) * 100;
+                filterName = 'sepia';
+                image.style.filter = 'sepia(' + filterValue + '%)';
+            } else if (event.altKey) {
+                filterValue = (x / image.offsetWidth) * 100;
+                filterName = 'grayscale';
+                image.style.filter = 'grayscale(' + filterValue + '%)';
+            } else if (event.shiftKey) {
+                filterValue = (x / image.offsetWidth) * 360;
+                filterName = 'hue-rotate';
+                image.style.filter = 'hue-rotate(' + filterValue + 'deg)';
+            } else {
+                filterValue = (x / image.offsetWidth) * 20;
+                filterName = 'blur';
+                image.style.filter = 'blur(' + filterValue + 'px)';
+            }
+            document.getElementById('filterName').innerText = 'Фильтр: ' + filterName;
+            document.getElementById('filterValue').innerText = 'Значение: ' + filterValue.toFixed(2) 
+        }
+    </script>
+    <style>
+        .img {
+            height: 100%;
+            width: 80%;
+            margin-left: 200px;
+            border: 7px solid black;
+            border-radius: 30px;
+        }
+
+        .info {
+            text-align: center;
+            font-size: 15px;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 5
+    </header>
+    <main>
+        <div class="info">
+            <p>Перемещайте курсор мыши по картинке для изменения фильтра (чем правее, тем сильнее эффект).</p>
+            <p>Также нажимайте клавиши Ctrl, Alt, Shift для активации других фильтров.</p>
+        </div>
+        <div><img src="1111.jpg" id="blurImage" class="img" onmousemove="dopFilter(event)"></div>
+        <div id="filterInfo" class="info">
+            <p id="filterName">Фильтр: blur</p>
+            <p id="filterValue">Значение: 0px</p>
+        </div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
