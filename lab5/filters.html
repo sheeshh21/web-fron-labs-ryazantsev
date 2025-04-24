@@ -51,6 +51,12 @@
             document.getElementById('blurImage').style.filter = 'saturate(' + value + ')';
         }
 
+        function sepiaChange() {
+            let value = document.getElementById('sepiaValue').value + '%';
+            document.getElementById('sepiaOutput').innerText = value;
+            document.getElementById('blurImage').style.filter = 'sepia(' + value + ')';
+        }
+
     </script>
     <style>
         .img {
@@ -83,6 +89,8 @@
             <input type="range" min="0" max="100" value="0" onchange="invetrChange()" id="invetrValue">
             Фильтр saturate
             <input type="range" min="0" max="500" value="100" onchange="saturateChange()" id="saturateValue">
+            Фильтр sepia
+            <input type="range" min="0" max="100" value="0" onchange="sepiaChange()" id="sepiaValue">
             <span id="blurOutput"></span>
             <span id="brightnessOutput"></span>
             <span id="contrastOutput"></span>
@@ -90,6 +98,7 @@
             <span id="huerotateOutput"></span>
             <span id="invetrOutput"></span>
             <span id="saturateOutput"></span>
+            <span id="sepiaOutput"></span>
         </div>
         <div><img src="1111.jpg" id="blurImage" class="img"></div>
     </main>
