@@ -45,6 +45,12 @@
             document.getElementById('blurImage').style.filter = 'invert(' + value + ')';
         }
 
+        function saturateChange() {
+            let value = document.getElementById('saturateValue').value + '%';
+            document.getElementById('saturateOutput').innerText = value;
+            document.getElementById('blurImage').style.filter = 'saturate(' + value + ')';
+        }
+
     </script>
     <style>
         .img {
@@ -75,12 +81,15 @@
             <input type="range" min="0" max="360" value="0" onchange="huerotateChange()" id="huerotateValue">
             Фильтр invetr
             <input type="range" min="0" max="100" value="0" onchange="invetrChange()" id="invetrValue">
+            Фильтр saturate
+            <input type="range" min="0" max="500" value="100" onchange="saturateChange()" id="saturateValue">
             <span id="blurOutput"></span>
             <span id="brightnessOutput"></span>
             <span id="contrastOutput"></span>
             <span id="grayscaleOutput"></span>
             <span id="huerotateOutput"></span>
             <span id="invetrOutput"></span>
+            <span id="saturateOutput"></span>
         </div>
         <div><img src="1111.jpg" id="blurImage" class="img"></div>
     </main>
