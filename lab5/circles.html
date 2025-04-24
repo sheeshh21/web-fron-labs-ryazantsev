@@ -93,6 +93,14 @@
             margin: 5px;
             position: absolute;
         }
+        .knopka {
+            height: 80px;
+            width: 180px;
+            margin-left: 900px;
+            border: 2px solid black;
+            border-radius: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -101,7 +109,7 @@
     </header>
     <main>
         <div style="left: 400px; top: 200px; background-color: red; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle1" onclick="showCircle('circle1', '0', '0', '0', '1s')">1</div>
-        <div style="left: 800px; top: 100px; background-color: blue; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle2" onclick="showCircle('circle2', '0', '0', '0', '1s')">2</div>
+        <div style="left: 650px; top: 100px; background-color: blue; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle2" onclick="showCircle('circle2', '0', '0', '0', '1s')">2</div>
         <div style="left: 700px; top: 350px; background-color: yellow; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle3" onclick="showCircle('circle3', '0', '0', '0', '1s')">3</div>
         <div style="left: 1600px; top: 400px; background-color: green; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle4" onclick="showCircle('circle4', '0', '0', '0', '1s')">4</div>
         <div style="left: 300px; top: 500px; background-color: purple; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle5" onclick="showCircle('circle5', '0', '0', '0', '1s')">5</div>
@@ -110,7 +118,7 @@
         <div style="left: 50px; top: 350px; background-color: rgb(128, 22, 83); color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle8" onclick="showCircle('circle8', '0', '0', '0', '1s')">8</div>
         <div style="left: 680px; top: 600px; background-color: rgb(172, 233, 75); color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle9" onclick="showCircle('circle9', '0', '0', '0', '1s')">9</div>
         <div style="left: 1500px; top: 100px; background-color: rgb(33, 110, 224); color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle10" onclick="showCircle('circle10', '0', '0', '0', '1s')">10</div>
-        <input type="button" value="Очистить" onclick="clearCircle()">
+        <input class='knopka' type="button" value="Очистить" onclick="clearCircle()">
     </main>
     <footer>
         &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
