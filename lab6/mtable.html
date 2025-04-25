@@ -17,6 +17,47 @@
                 tbl.innerHTML += s;
             }
         }
+
+        function dopZnach() {
+            let tbl = document.getElementById('mtable');
+            let umnna = parseInt(document.getElementById('numberA').value);
+            let nachs = parseInt(document.getElementById('numberB').value);
+            let zakonna = parseInt(document.getElementById('numberC').value);
+            let error = document.getElementById('error');
+            let error2 = document.getElementById('error2');
+
+            if(nachs > zakonna) {
+                error.innerText = 'Ошибка! Перепроверьте введённые данные на верность.';
+                return;
+            }
+
+            if(isNaN(nachs)) {
+                error2.innerText = 'Введите данные в первое поле!';
+                return
+            }
+
+            error2.innerText = ''
+
+            if(isNaN(umnna)) {
+                error2.innerText = 'Введите данные во второе поле!';
+                return
+            }
+
+            error2.innerText = ''
+
+            if(isNaN(zakonna)) {
+                error2.innerText = 'Введите данные в третье поле!';
+                return
+            }
+
+            error2.innerText = ''
+            tbl.innerHTML = '<h1>Таблица умножения</h1>';
+
+            for(let i = nachs; i <= zakonna; i++) {
+                let s = `<div>${i} * ${umnna} = ${i * umnna}</div>`;
+                tbl.innerHTML += s;
+            }
+        }
     </script>
     <style>
         .tbl {
@@ -35,6 +76,14 @@
             color: black;
             margin-left: 800px;
         }
+        #error {
+            color: red;
+            text-align: center;
+        }
+        #error2 {
+            color: red;
+            text-align: center;
+        }
     </style>
 </head>
 <body onload = 'showMutipleTable()'>
@@ -42,12 +91,14 @@
         НГТУ, ФБ, Лабораторная 6
     </header>
     <main>
+        <div id="error"></div>
+        <div id="error2"></div>
         <div id="mtable" class="tbl"></div>
         <div>
             <label class="num">Умножить на: <input class="vvod" type="number" value="" id="numberA"></label><br>
             <label class="num">Начать с: <input class="vvod" type="number" value="" id="numberB"></label><br>
             <label class="num">Закончить на: <input class="vvod" type="number" value="" id="numberC"></label><br>
-            <input class="knopka" type="button" value="Таблица">
+            <input class="knopka" type="button" value="Таблица" onclick="dopZnach()">
         </div>
     </main>
     <footer>
