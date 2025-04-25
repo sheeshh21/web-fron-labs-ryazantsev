@@ -31,6 +31,10 @@
         h1 {
             text-align: center;
         }
+        .num {
+            color: black;
+            margin-left: 800px;
+        }
     </style>
 </head>
 <body onload = 'showMutipleTable()'>
@@ -39,6 +43,12 @@
     </header>
     <main>
         <div id="mtable" class="tbl"></div>
+        <div>
+            <label class="num">Умножить на: <input class="vvod" type="number" value="" id="numberA"></label><br>
+            <label class="num">Начать с: <input class="vvod" type="number" value="" id="numberB"></label><br>
+            <label class="num">Закончить на: <input class="vvod" type="number" value="" id="numberC"></label><br>
+            <input class="knopka" type="button" value="Таблица">
+        </div>
     </main>
     <footer>
         &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
