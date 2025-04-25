@@ -15,11 +15,13 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+
             if (isNaN(a)) {
                 alert('Введите числовое значение в первое поле!');
                 inputA.style.color = 'red';
                 return;
             }
+
             if (isNaN(b)) {
                 alert('Введите числовое значение во второе поле!');
                 inputB.style.color = 'red';
@@ -31,8 +33,7 @@
                 inputB.style.borderColor = '';
 
             let result = a + b;
-            alert(' Сумма ' + a + ' и ' + b + ' равна ' + result);
-
+            alert(' Сумма ' + a + ' и ' + b + ' равна ' + result)
         }
 
         function showDiff() {
@@ -41,11 +42,13 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+
             if (isNaN(a)) {
                 alert('Введите числовое значение в первое поле!');
                 inputA.style.color = 'red';
                 return;
             }
+
             if (isNaN(b)) {
                 alert('Введите числовое значение во второе поле!');
                 inputB.style.color = 'red';
@@ -66,6 +69,7 @@
 
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
+            
             if (isNaN(a)) {
                 alert('Введите числовое значение в первое поле!');
                 inputA.style.color = 'red';
@@ -121,6 +125,37 @@
             alert(' Отношение ' + a + ' и ' + b + ' равно ' + result)
         }
 
+        function showDegree() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле!');
+                inputA.style.color = 'red';
+                return;
+            }
+
+            if (isNaN(b)) {
+                alert('Введите числовое значение во второе поле!');
+                inputB.style.color = 'red';
+                return;
+            }
+
+            if(a == 0 & b == 0) {
+                alert('Оба числа не могут быть равны 0!')
+                return
+            }
+
+                inputA.style.color = '';
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
+            let result = a ** b;
+            alert('Число ' + a + ' в степени ' + b + ' равно ' + result)
+        }
+
         function showAuthor() {
             let author = "Автор страницы: \nРязанцев Александр Алексеевич";
             alert(author);
@@ -158,6 +193,11 @@
             margin-left: 250px;
         }
 
+        .message2 {
+            position: relative;
+            margin-left: 800px;
+        }
+
         .num {
             margin-left: 40%;
             font-size: 35px;
@@ -181,20 +221,19 @@
 
         #output {
             border: 3px solid;
-            height: 50px;
+            height: 85px;
             width: 400px;
             text-align: center;
             margin: 3px auto;
             border-radius: 12px;
             box-shadow: 3px 3px 6px #000000a9;
-            
         }
 
         .knopka {
-            background-color: lightyellow;
+            background-color: hwb(263 55% 26% / 0.822);
             height: 30px;
             width: 90px;
-            border: 3px solid rgb(247, 114, 134);
+            border: 3px solid black;
             border-radius: 12px;
             font-weight: bold;
             margin-top: 20px;
@@ -218,7 +257,8 @@
         <div class="message" onclick="showDiff()">Найти разность чисел</div>
         <div class="message" onclick="showMult()">Найти произведение чисел</div>
         <div class="message" onclick="showDiv()">Найти отношение чисел</div>
-        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showDegree()">Возведение в степень</div>
+        <div class="message message2" onclick="showAuthor()">Узнать, кто автор страницы</div>
         <div>
             <input class="knopka1 knopka" type="button" value="Кнопка 1" onclick="changeOutput(1, 'lightyellow', 'darkgreen', '5px solid', '12px')">
             <input class="knopka" type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', '3px dotted', '20px')">
@@ -231,4 +271,4 @@
         &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
     </footer>
 </body>
-</html>
+</html>1

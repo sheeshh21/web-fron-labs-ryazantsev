@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 5.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showCircle(circleId, opacity, height, width, transition) {
+            let circle = document.getElementById(circleId); 
+            circle.style.opacity = opacity;
+            circle.style.height = height;
+            circle.style.width = width;
+            circle.style.transition = transition;
+        }
+        
+        function clearCircle() {
+            let circle = document.getElementById('circle1');
+            circle.style.opacity = '1';
+            circle.style.height = '200px';
+            circle.style.width = '200px';
+            circle.style.transition = '1';
+
+            let circle1 = document.getElementById('circle2');
+            circle1.style.opacity = '1';
+            circle1.style.height = '200px';
+            circle1.style.width = '200px';
+            circle1.style.transition = '1';
+
+            let circle2 = document.getElementById('circle3');
+            circle2.style.opacity = '1';
+            circle2.style.height = '200px';
+            circle2.style.width = '200px';
+            circle2.style.transition = '1';
+
+            let circle3 = document.getElementById('circle4');
+            circle3.style.opacity = '1';
+            circle3.style.height = '200px';
+            circle3.style.width = '200px';
+            circle3.style.transition = '1';
+
+            let circle4 = document.getElementById('circle5');
+            circle4.style.opacity = '1';
+            circle4.style.height = '200px';
+            circle4.style.width = '200px';
+            circle4.style.transition = '1';
+
+            let circle5 = document.getElementById('circle6');
+            circle5.style.opacity = '1';
+            circle5.style.height = '200px';
+            circle5.style.width = '200px';
+            circle5.style.transition = '1';
+
+            let circle6 = document.getElementById('circle7');
+            circle6.style.opacity = '1';
+            circle6.style.height = '200px';
+            circle6.style.width = '200px';
+            circle6.style.transition = '1';
+
+            let circle7 = document.getElementById('circle8');
+            circle7.style.opacity = '1';
+            circle7.style.height = '200px';
+            circle7.style.width = '200px';
+            circle7.style.transition = '1';
+
+            let circle8 = document.getElementById('circle9');
+            circle8.style.opacity = '1';
+            circle8.style.height = '200px';
+            circle8.style.width = '200px';
+            circle8.style.transition = '1';
+
+            let circle9 = document.getElementById('circle10');
+            circle9.style.opacity = '1';
+            circle9.style.height = '200px';
+            circle9.style.width = '200px';
+            circle9.style.transition = '1';
+        }
+
+    </script>
+    <style>
+        .circle {
+            display: flex;
+            border: 2px solid;
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 5px;
+            position: absolute;
+        }
+        .knopka {
+            height: 80px;
+            width: 180px;
+            margin-left: 900px;
+            border: 2px solid black;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 5
+    </header>
+    <main>
+        <div style="left: 400px; top: 200px; background-color: red; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle1" onclick="showCircle('circle1', '0', '0', '0', '1s')">1</div>
+        <div style="left: 650px; top: 100px; background-color: blue; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle2" onclick="showCircle('circle2', '0', '0', '0', '1s')">2</div>
+        <div style="left: 700px; top: 350px; background-color: yellow; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle3" onclick="showCircle('circle3', '0', '0', '0', '1s')">3</div>
+        <div style="left: 1600px; top: 400px; background-color: green; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle4" onclick="showCircle('circle4', '0', '0', '0', '1s')">4</div>
+        <div style="left: 300px; top: 500px; background-color: purple; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle5" onclick="showCircle('circle5', '0', '0', '0', '1s')">5</div>
+        <div style="left: 1100px; top: 250px; background-color: lightpink; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle6" onclick="showCircle('circle6', '0', '0', '0', '1s')">6</div>
+        <div style="left: 1300px; top: 600px; background-color: lightyellow; color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle7" onclick="showCircle('circle7', '0', '0', '0', '1s')">7</div>
+        <div style="left: 50px; top: 350px; background-color: rgb(128, 22, 83); color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle8" onclick="showCircle('circle8', '0', '0', '0', '1s')">8</div>
+        <div style="left: 680px; top: 600px; background-color: rgb(172, 233, 75); color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle9" onclick="showCircle('circle9', '0', '0', '0', '1s')">9</div>
+        <div style="left: 1500px; top: 100px; background-color: rgb(33, 110, 224); color: black; border: 7px solid black; font-size: 60px; font-weight: bold;" class="circle" id="circle10" onclick="showCircle('circle10', '0', '0', '0', '1s')">10</div>
+        <input class='knopka' type="button" value="Очистить" onclick="clearCircle()">
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>

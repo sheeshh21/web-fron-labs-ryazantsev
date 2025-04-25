@@ -8,13 +8,169 @@
     <link rel="stylesheet" href="../main.css">
     <link rel="icon" href="../favicon-16x16.png">
     <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showMult() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            let inputC = document.getElementById('numberC');
+            let inputD = document.getElementById('numberD');
+            let summa = document.getElementById('summa');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let c = parseInt(inputC.value);
+            let d = parseInt(inputD.value);
+            let x = 350;
+            let x1 = 250;
+            let x2 = 300;
+            let x3 = 150;
+
+            if(a < 0) {
+                alert("Кол-во помидоров не может быть меньше 0!");
+                return
+            }
+
+            if(b < 0) {
+                alert("Кол-во огурцов не может быть меньше 0!");
+                return
+            }
+
+            if(c < 0) {
+                alert("Кол-во капусты не может быть меньше 0!");
+                return
+            }
+
+            if(d < 0) {
+                alert("Кол-во лука не может быть меньше 0!");
+                return
+            }
+
+            if(isNaN(a)) {
+                alert("Введите пожалуйста кол-во помидоров!");
+                inputA.style.borderColor = 'red';
+                return
+            }
+
+            inputA.style.borderColor = '';
+
+            if(isNaN(b)) {
+                alert("Введите пожалуйста кол-во огурцов!");
+                inputB.style.borderColor = 'red';
+                return
+            }
+
+            inputB.style.borderColor = '';
+
+            if(isNaN(c)) {
+                alert("Введите пожалуйста кол-во капусты!");
+                inputC.style.borderColor = 'red';
+                return
+            }
+
+            inputC.style.borderColor = '';
+
+            if(isNaN(d)) {
+                alert("Введите пожалуйста кол-во лука!");
+                inputD.style.borderColor = 'red';
+                return
+            }
+
+            inputD.style.borderColor = '';
+            
+            let result = a * x + b * x1 + c * x2 + d * x3;
+            summa.innerHTML = 'Итоговая сумма: ' + result
+        }
+
+        function clearFields() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            let inputC = document.getElementById('numberC');
+            let inputD = document.getElementById('numberD');
+            let summa = document.getElementById('summa');
+
+            inputA.value = ""
+            inputB.value = ""
+            inputC.value = ""
+            inputD.value = ""
+            summa.innerHTML = ""
+        }
+
+    </script>
+    <style>
+        .okno {
+            border: 3px solid black;
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            margin-left: 760px;
+            border-radius: 20px;
+            width: 340px;
+            background-color: hwb(263 42% 29% / 0.719);
+        }
+
+        .knopka {
+            border: 2px solid black;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            background-color: rgba(173, 216, 230, 0.836);
+            color: black;
+        }
+
+        .knopka1 {
+            margin-left: 47px;
+        }
+
+        .vvod {
+            width: 226px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 2px solid black;
+            border-radius: 5px;
+            height: 20px;
+        }
+        
+        #summa {
+            color: black;
+        }
+        .zagolovok {
+            text-align: center;
+            font-weight: bold;
+            color: black;
+            font-size: 37px;
+            margin-bottom: 20px;
+        }
+        .num {
+            color: black;
+            font-size: 23px;
+        }
+    </style>
 </head>
 <body>
     <header>
         НГТУ, ФБ, Лабораторная 5
     </header>
     <main>
-        
+        <div class="okno">
+            <div class="zagolovok">Корзина товаров</div>
+            <div>
+                <label class="num">Помидоры <span class="price">(350 руб./шт)</span><br><input class="vvod" type="number" value="" id="numberA" min="0" placeholder="Эй, количество помидоров введи!"></label><br>
+            </div>
+            <div>
+                <label class="num">Огурцы <span class="price">(250 руб./шт)</span><br><input class="vvod" type="number" value="" id="numberB" placeholder="Огурцы мне тоже нужно знать..."></label><br>
+            </div>
+            <div>
+                <label class="num">Капуста <span class="price">(300 руб./шт)</span><br><input class="vvod" type="number" value="" id="numberC" placeholder="Капуста не исключение!"></label><br>
+            </div>
+            <div>
+                <label class="num">Лук <span class="price">(150 руб./шт)</span><br><input class="vvod" type="number" value="" id="numberD" placeholder="Про лук повторять даже не буду!"></label><br>
+            </div>
+            <div class="knopka knopka1" onclick="showMult()">Рассчитать</div>
+            <div class="knopka" onclick="clearFields()">Очистить</div>
+            <div id="summa"></div>
+        </div>
     </main>
     <footer>
         &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
