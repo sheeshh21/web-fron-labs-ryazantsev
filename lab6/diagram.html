@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 6.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showDiagramm() {
+            let data = [43, 50, 74, 23, 60, 84, 45, 64, 34, 76];
+            let colors = ['rgb(253, 109, 109)', 'rgb(88, 88, 255)', 'rgb(153, 231, 153)', 'rgb(252, 252, 174)', 'rgba(36, 36, 36, 0.582)', 'pink', 'rgb(138, 207, 196)', 'rgb(138, 174, 207)', 'rgb(187, 162, 116)', 'rgb(203, 162, 255)'];
+            let bars = document.getElementsByClassName('bar');
+            const diagHeight = document.getElementById('diag').clientHeight;
+            const maxData = Math.max(...data);
+            const k = diagHeight / maxData * 0.9;
+            for(let i = 0; i < data.length; i++) {
+                bars[i].style.height = k*data[i] + 'px';
+                bars[i].style.backgroundColor = colors[i];
+                bars[i].innerHTML = data[i];
+            }
+            
+            
+        }
+    </script>
+    <style>
+        .bar {
+            height: 10px;
+            width: 80px;
+            background-color: rgba(140, 117, 181, 0.938);
+            border: 2px solid black;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: top;
+            margin-left: 5px;
+            margin-right: 5px;
+            font-weight: bold;
+            
+        }
+        .block {
+            background-color: #fffee8;
+            width: 920px;
+            height: 720px;
+            margin-top: 10px;
+            margin-left: 500px;
+            border: 2px solid black;
+            display: flex;
+            align-items: flex-end;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body onload="showDiagramm()">
+    <header>
+        НГТУ, ФБ, Лабораторная 6
+    </header>
+    <main>
+        <div id="diag" class="block">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
