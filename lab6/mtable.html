@@ -27,29 +27,41 @@
             let error2 = document.getElementById('error2');
 
             if(nachs > zakonna) {
-                error.innerText = 'Ошибка! Перепроверьте введённые данные на верность.';
+                error.innerText = 'Ошибка! Поле "Начать с" не может быть больше чем "Закончить на".';
+                numberB.style.border = '2px solid red';
+                numberC.style.border = '2px solid red'
                 return;
             }
 
-            if(isNaN(nachs)) {
-                error2.innerText = 'Введите данные в первое поле!';
-                return
-            }
-
-            error2.innerText = ''
+            numberB.style.border = '';
+            numberC.style.border = '';
+            error.innerText = '';
 
             if(isNaN(umnna)) {
-                error2.innerText = 'Введите данные во второе поле!';
+                error2.innerText = 'Введите данные в первое поле!';
+                numberA.style.border = '2px solid red'
                 return
             }
 
+            numberA.style.border = '';
+            error2.innerText = ''
+
+            if(isNaN(nachs)) {
+                error2.innerText = 'Введите данные во второе поле!';
+                numberB.style.border = '2px solid red'
+                return
+            }
+
+            numberB.style.border = '';
             error2.innerText = ''
 
             if(isNaN(zakonna)) {
                 error2.innerText = 'Введите данные в третье поле!';
+                numberC.style.border = '2px solid red'
                 return
             }
 
+            numberC.style.border = '';
             error2.innerText = ''
             tbl.innerHTML = '<h1>Таблица умножения</h1>';
 
@@ -63,26 +75,50 @@
         .tbl {
             color: black;
             text-align: center;
-            border: 2px solid black;
+            border: 3px solid black;
             margin-left: 600px;
             margin-right: 600px;
             margin-top: 20px;
             padding-bottom: 20px;
+            border-radius: 20px;
+            font-size: 25px;
         }
         h1 {
             text-align: center;
+            text-decoration: underline dotted black;
         }
         .num {
             color: black;
             margin-left: 800px;
+            font-style: italic;
         }
         #error {
             color: red;
             text-align: center;
+            font-weight: bold;
+            margin: 15px;
         }
         #error2 {
             color: red;
             text-align: center;
+            font-weight: bold;
+            margin: 15px;
+        }
+        .knopka {
+            width: 150px;
+            height: 50px;
+            margin-left: 900px;
+            margin-top: 10px;
+            border: 2px solid;
+            border-radius: 8px;
+            font-size: 22px;
+            
+        }
+        .vvod {
+            margin-top: 10px;
+            border: 2px solid;
+            border-radius: 5px;
+            height: 20px;
         }
     </style>
 </head>
@@ -98,7 +134,7 @@
             <label class="num">Умножить на: <input class="vvod" type="number" value="" id="numberA"></label><br>
             <label class="num">Начать с: <input class="vvod" type="number" value="" id="numberB"></label><br>
             <label class="num">Закончить на: <input class="vvod" type="number" value="" id="numberC"></label><br>
-            <input class="knopka" type="button" value="Таблица" onclick="dopZnach()">
+            <input class="knopka" type="button" value="Рассчитать" onclick="dopZnach()">
         </div>
     </main>
     <footer>
