@@ -30,7 +30,7 @@
             color: black;
             text-align: center;
             margin-top: 10px;
-            border: 1px solid;
+            border: 2px solid;
             margin: 10px auto;
             display: table;
             padding-left: 20px;
@@ -38,6 +38,7 @@
             padding-top: 10px;
             padding-bottom: 10px;
             border-radius: 20px;
+            
         }
         h1 {
             color: black;
@@ -47,23 +48,80 @@
             height: 30px;
             width: 30px;
             position: absolute;
-            margin-left: 700px;
+            margin-left: 810px;
             margin-top: 18px;
         }
         .rusimg2 {
-            margin-left: 975px;
+            margin-left: 1080px;
         }
         .austimg {
             height: 30px;
             width: 30px;
             position: absolute;
-            margin-left: 690px;
+            margin-left: 795px;
             margin-top: 20px;
         }
         .austimg2 {
-            margin-left: 985px;
+            margin-left: 1092px;
         }
-        
+        .kanimg {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            margin-left: 802px;
+            margin-top: 20px;
+        }
+        .kanimg2 {
+            margin-left: 1087px;
+        }
+        .argimg {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            margin-left: 792px;
+            margin-top: 20px;
+        }
+        .argimg2 {
+            margin-left: 1098px;
+        }
+        .arimg {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            margin-left: 809px;
+            margin-top: 20px;
+        }
+        .arimg2 {
+            margin-left: 1080px;
+        }
+        .omimg {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            margin-left: 812px;
+            margin-top: 20px;
+        }
+        .omimg2 {
+            margin-left: 1077px;
+        }
+        .rus {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.61),rgba(0, 0, 255, 0.514),rgba(255, 0, 0, 0.514));
+        }
+        .aust {
+            background: linear-gradient(to right bottom, rgba(255, 0, 0, 0.514), rgba(255, 255, 255, 0.61), rgba(0, 0, 255, 0.514));
+        }
+        .kan {
+            background: linear-gradient(to left, rgba(255, 0, 0, 0.555),white,rgba(255, 0, 0, 0.521));
+        }
+        .arg {
+            background: linear-gradient(to bottom, rgb(101, 188, 218), white, rgb(109, 194, 223));
+        }
+        .ar {
+            background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.555), rgba(0, 128, 0, 0.534),white,rgb(0, 0, 0));
+        }
+        .om {
+            background: linear-gradient(to bottom, white,rgba(255, 166, 0, 0.527),rgba(0, 128, 0, 0.534));
+        }
     </style>
 </head>
 <body onload="showDate()">
@@ -76,14 +134,22 @@
         </div>
         <div><img src="3.png" class="rusimg"></div>
         <div><img src="3.1.png" class="rusimg rusimg2"></div>
-        <div class="date" id="current-date"></div>
+        <div class="date rus" id="current-date"></div>
         <div><img src="4.png" class="austimg"></div>
         <div><img src="4.1.png" class="austimg austimg2"></div>
-        <div class="date" id="current-date2"></div>
-        <div class="date" id="current-date3"></div>
-        <div class="date" id="current-date4"></div>
-        <div class="date" id="current-date5"></div>
-        <div class="date" id="current-date6"></div>
+        <div class="date aust" id="current-date2"></div>
+        <div><img src="5.png" class="argimg"></div>
+        <div><img src="5.1.png" class="argimg argimg2"></div>
+        <div class="date kan" id="current-date3"></div>
+        <div><img src="6.png" class="kanimg"></div>
+        <div><img src="6.1.png" class="kanimg kanimg2"></div>
+        <div class="date arg" id="current-date4"></div>
+        <div><img src="7.png" class="arimg"></div>
+        <div><img src="7.1.png" class="arimg arimg2"></div>
+        <div class="date ar" id="current-date5"></div>
+        <div><img src="8.png" class="omimg"></div>
+        <div><img src="8.1.png" class="omimg omimg2"></div>
+        <div class="date om" id="current-date6"></div>
     </main>
     <footer>
         &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
