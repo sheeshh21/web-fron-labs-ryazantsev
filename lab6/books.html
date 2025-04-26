@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 6.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script src="books.js"></script>
+    <script>
+        function showBooks() {
+    const booksList = document.getElementById('bookList');
+    books.forEach(book => {
+        let style = "";
+        let info = "";
+        let bestseller = "";
+
+        if (book.dostup) {
+            style += "opacity: 0.5;";
+            info += `<div class='nedostup'>Этой книги сейчас нет в наличии!</div>`;
+        }
+
+        if (book.bestseller) {
+            bestseller = `<sup class='bestseller'>бестселлер!</sup>`;
+        }
+
+        booksList.innerHTML += `
+            <div style="${style}" class='block'>
+                <li>
+                    <b>${book.author}</b> ${bestseller}<br>
+                    <i>${book.name}</i> — ${book.year}
+                    <b>${book.price}</b>
+                </li>
+                ${info}
+            </div>
+        `;
+    });
+}
+    </script>
+    <style>
+        h1 {
+            color: black;
+            text-align: center;
+            text-decoration: underline dotted black;
+        }
+        div {
+            color: black;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .bestseller {
+            background-color: lightgreen;
+            border: 2px solid;
+            border-radius: 7px;
+        }
+        .nedostup {
+            color: red;
+            font-weight: bold;
+        }
+        .block {
+            border: 1px solid;
+            display: table;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 10px;
+            
+        }
+    </style>
+</head>
+<body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная 6
+    </header>
+    <main>
+        <h1>Список книг</h1>
+        <div id="bookList">
+        </div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
