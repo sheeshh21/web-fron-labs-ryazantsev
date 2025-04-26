@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 6.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showDate() {
+            let out = document.getElementById('current-date');
+            let out2 = document.getElementById('current-date2');
+            let out3 = document.getElementById('current-date3');
+            let out4 = document.getElementById('current-date4');
+            let out5 = document.getElementById('current-date5');
+            let out6 = document.getElementById('current-date6');
+            let today = new Date();
+            out.innerHTML = 'Русская локаль:<br> ' + today.toLocaleString('ru-RU');
+            out2.innerHTML = 'Австралийская локаль:<br> ' + today.toLocaleString('en-AU');
+            out3.innerHTML = 'Канадская локаль:<br> ' + today.toLocaleString('en-CA');
+            out4.innerHTML = 'Аргентинская локаль:<br> ' + today.toLocaleString('es-AR');
+            out5.innerHTML = 'Арабская локаль:<br> ' + today.toLocaleString('ar-AE');
+            out6.innerHTML = 'Оманская локаль:<br> ' + today.toLocaleString('ar-OM');
+        }
+    </script>
+    <style>
+        .date {
+            color: black;
+            text-align: center;
+            margin-top: 10px;
+            border: 1px solid;
+            margin: 10px auto;
+            display: table;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+        }
+        .rusimg {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            margin-left: 700px;
+            margin-top: 18px;
+        }
+        .rusimg2 {
+            margin-left: 975px;
+        }
+        .austimg {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            margin-left: 690px;
+            margin-top: 20px;
+        }
+        .austimg2 {
+            margin-left: 985px;
+        }
+        
+    </style>
+</head>
+<body onload="showDate()">
+    <header>
+        НГТУ, ФБ, Лабораторная 6
+    </header>
+    <main>
+        <div>
+            <h1>Дата и время для разных локалей</h1>
+        </div>
+        <div><img src="3.png" class="rusimg"></div>
+        <div><img src="3.1.png" class="rusimg rusimg2"></div>
+        <div class="date" id="current-date"></div>
+        <div><img src="4.png" class="austimg"></div>
+        <div><img src="4.1.png" class="austimg austimg2"></div>
+        <div class="date" id="current-date2"></div>
+        <div class="date" id="current-date3"></div>
+        <div class="date" id="current-date4"></div>
+        <div class="date" id="current-date5"></div>
+        <div class="date" id="current-date6"></div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
