@@ -79,10 +79,70 @@
             document.getElementById('stop-btn').disabled = true;
         }
 
-        function showInfo() {
-            let x = document.getElementById('rusinfo');
-            x.style.display = 'block';
-            x.innerHTML = "<b>Часовой пояс России</b><br><div class='rusinfo2'>Россия занимает сразу несколько часовых поясов — <br>от UTC+2 до UTC+12, так как страна <br>очень большая по территории. <br>Для центральной части России (Москва) используется <br>часовой пояс Московское время (MSK) — UTC+3:00.</div>" + "<img src='moscow.jpg' class='moscow'>"
+        function showInfoRus() {
+            let rusinfo = document.getElementById('rusinfo');
+            austinfo.style.display = 'none';
+            kaninfo.style.display = 'none';
+            arginfo.style.display = 'none';
+            arinfo.style.display = 'none';
+            ominfo.style.display = 'none';
+            rusinfo.style.display = 'block';
+            rusinfo.innerHTML = "<b>Часовой пояс России</b><br><div class='rusinfo2'>Россия занимает сразу несколько часовых поясов — <br>от UTC+2 до UTC+12, так как страна <br>очень большая по территории. <br>Для центральной части России (Москва) используется <br>часовой пояс Московское время (MSK) — UTC+3:00.</div>" + "<img src='moscow.jpg' class='moscow'>"
+        }
+
+
+        function showInfoAust() {
+            let austinfo = document.getElementById('austinfo');
+            kaninfo.style.display = 'none';
+            arginfo.style.display = 'none';
+            ominfo.style.display = 'none';
+            arinfo.style.display = 'none';
+            austinfo.style.display = 'block';
+            austinfo.innerHTML = "<b>Часовой пояс Австралии</b><br><div class='austinfo2'>Австралия занимает несколько часовых поясов из-за <br>своей большой территории и делится на три <br>основных часовых пояса:<br>1. Австралийское восточное время (AEST) — <br>UTC+10:00-Например, Сидней и Мельбурн находятся <br>в этом часовом поясе.<br>2. Австралийское центральное время (ACST) — <br>UTC+9:30-В этом часовом поясе находится, например, </br>Аделаида.<br>3. Австралийское западное время (AWST) — <br>UTC+8:00-Этот часовой пояс включает, например, Перта.</div>" + "<img src='australia.webp' class='australia'>"
+        }
+
+        function showInfoKan() {
+            let kaninfo = document.getElementById('kaninfo');
+            austinfo.style.display = 'none';
+            rusinfo.style.display = 'none';
+            arginfo.style.display = 'none';
+            arinfo.style.display = 'none';
+            ominfo.style.display = 'none';
+            kaninfo.style.display = 'block';
+            kaninfo.innerHTML = "<b>Часовой пояс Канады</b><br><div class='kaninfo2'>1. Тихоокеанское время (PST) — UTC-8:00 - <br>Это время используется в западной части Канады<br>2. Горное время (MST) — UTC-7:00- <br>Применяется в регионах, таких как Калгари и Эдмонтон.<br>3. Центральное время (CST) — UTC-6:00- <br>Этот часовой пояс охватывает город Виннипег.<br>4. Восточное время (EST) — UTC-5:00- <br>Включает крупные города, такие как Торонто и Оттава.</div>" + "<img src='kanada.jpg' class='kanada'>"
+        }
+
+        function showInfoArg() {
+            let arginfo = document.getElementById('arginfo');
+            austinfo.style.display = 'none';
+            rusinfo.style.display = 'none';
+            kaninfo.style.display = 'none';
+            arinfo.style.display = 'none';
+            ominfo.style.display = 'none';
+            arginfo.style.display = 'block';
+            arginfo.innerHTML = "<b>Часовой пояс Аргентины</b><br><div class='arginfo2'>Аргентина использует один основной часовой пояс:<br>Аргентинское время (ART) — UTC-3:00<br>Этот часовой пояс применяется по всей территории <br>страны, включая крупные города, такие как <br>Буэнос-Айрес, Кордова и Росарио.<br>В Аргентине не применяется летнее время, <br>что означает, что часы остаются фиксированными <br>в течение всего года.</div>" + "<img src='argentina2.webp' class='kanada'>"
+        }
+
+        function showInfoAr() {
+            let arinfo = document.getElementById('arinfo');
+            austinfo.style.display = 'none';
+            rusinfo.style.display = 'none';
+            kaninfo.style.display = 'none';
+            arginfo.style.display = 'none';
+            ominfo.style.display = 'none';
+            arinfo.style.display = 'block';
+            arinfo.innerHTML = "<b>Арабский часовой пояс</b><br><div class='arginfo2'>Арабский мир охватывает множество стран, <br>и в этих странах используются разные часовые пояса. <br>Вот основные часовые пояса в арабских странах:<br>1. Арабское стандартное время (AST) — UTC+3:00<br>Применяется в таких странах, как <br>Саудовская Аравия, Кувейт и Иордания.<br>2. Арабское летнее время (EEST/AST) — UTC+2:00<br>Используется, например, в Египте, <br>и может изменяться на летнее время.</div>" + "<img src='oae.jpeg' class='kanada'>"
+        }
+
+        function showInfoOm() {
+            let ominfo = document.getElementById('ominfo');
+            austinfo.style.display = 'none';
+            rusinfo.style.display = 'none';
+            kaninfo.style.display = 'none';
+            arginfo.style.display = 'none';
+            arinfo.style.display = 'none';
+            ominfo.style.display = 'block';
+            ominfo.innerHTML = "<b>Оманский часовой пояс</b><br><div class='arginfo2'>Оман использует один часовой пояс:-<br>Оманское время (GST) — UTC+4:00<br>Этот часовой пояс применяется на всей территории <br>страны, включая столицу Маскат <br>и другие города.<br>В Омане не используется летнее время, <br>что означает, что часы остаются <br>фиксированными на протяжении всего года</div>" + "<img src='oman.jpg' class='kanada'>"
         }
 
     </script>
@@ -99,7 +159,6 @@
             padding-top: 10px;
             padding-bottom: 10px;
             border-radius: 20px;
-            
         }
         h1 {
             color: black;
@@ -168,21 +227,62 @@
         .rus {
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.61),rgba(0, 0, 255, 0.514),rgba(255, 0, 0, 0.514));
             cursor: pointer;
+            transition: 0.3s;
+        }
+        .rus:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.563);
+            transition: 0.3s;
+            opacity: 0.8;
         }
         .aust {
             background: linear-gradient(to right bottom, rgba(255, 0, 0, 0.514), rgba(255, 255, 255, 0.61), rgba(0, 0, 255, 0.514));
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .aust:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.563);
+            transition: 0.3s;
+            opacity: 0.8;
         }
         .kan {
             background: linear-gradient(to left, rgba(255, 0, 0, 0.555),white,rgba(255, 0, 0, 0.521));
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .kan:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.563);
+            transition: 0.3s;
+            opacity: 0.8;
         }
         .arg {
             background: linear-gradient(to bottom, rgb(101, 188, 218), white, rgb(109, 194, 223));
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .arg:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.563);
+            transition: 0.3s;
+            opacity: 0.8;
         }
         .ar {
             background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.555), rgba(0, 128, 0, 0.534),white,rgb(0, 0, 0));
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .ar:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.563);
+            transition: 0.3s;
+            opacity: 0.8;
         }
         .om {
             background: linear-gradient(to bottom, white,rgba(255, 166, 0, 0.527),rgba(0, 128, 0, 0.534));
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .om:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.563);
+            transition: 0.3s;
+            opacity: 0.8;
         }
         .button {
             height: 80px;
@@ -194,10 +294,22 @@
             background-color: rgb(255, 250, 243);
             transition: 0.4s;
             cursor: pointer;
-
+            position: absolute;
+        }
+        .button:hover {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.519);
+            opacity: 0.7;
+        }
+        .button:active {
+            height: 72px;
+            width: 172px;
+            transition: 0.3s;
         }
         .button1 {
             margin-left: 826px;
+        }
+        .button4 {
+            margin-left: 1020px;
         }
         .button2 {
             height: 80px;
@@ -269,6 +381,44 @@
             border-radius: 20px;
             background-color: rgb(210, 245, 210);
         }
+        .austinfo2 {
+            line-height:30px;
+            margin-left: 0px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 5px;
+        }
+        .australia {
+            height: 200px;
+            width: 500px;
+            margin-left: 40px;
+            margin-top: 10px;
+            border: 2px solid;
+            border-radius: 8px;
+        }
+        .kaninfo2 {
+            line-height:30px;
+            margin-left: 0px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 5px;
+        }
+        .kanada {
+            height: 200px;
+            width: 500px;
+            margin-left: 40px;
+            margin-top: 10px;
+            border: 2px solid;
+            border-radius: 8px;
+        }
+        .arginfo2 {
+            line-height:30px;
+            margin-left: 0px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 5px;
+        }
+    
     </style>
 </head>
 <body onload="showDate()">
@@ -277,34 +427,39 @@
     </header>
     <main>
         <div id="rusinfo" class="rusinfo block2"></div>
+        <div id="austinfo" class="rusinfo block2"></div>
+        <div id="kaninfo" class="rusinfo block2"></div>
+        <div id="arginfo" class="rusinfo block2"></div>
+        <div id="arinfo" class="rusinfo block2"></div>
+        <div id="ominfo" class="rusinfo block2"></div>
         <div class="block">
             <div>
                 <h1>Дата и время для разных локалей</h1>
             </div>
                 <div><img src="3.png" class="rusimg"></div>
                 <div><img src="3.1.png" class="rusimg rusimg2"></div>
-                <div class="date rus" id="current-date" onclick="showInfo()"></div>
+                <div class="date rus" id="current-date" onclick="showInfoRus()"></div>
                 <div><img src="4.png" class="austimg"></div>
                 <div><img src="4.1.png" class="austimg austimg2"></div>
-                <div class="date aust" id="current-date2"></div>
+                <div class="date aust" id="current-date2" onclick="showInfoAust()"></div>
                 <div><img src="5.png" class="argimg"></div>
                 <div><img src="5.1.png" class="argimg argimg2"></div>
-                <div class="date kan" id="current-date3"></div>
+                <div class="date kan" id="current-date3" onclick="showInfoKan()"></div>
                 <div><img src="6.png" class="kanimg"></div>
                 <div><img src="6.1.png" class="kanimg kanimg2"></div>
-                <div class="date arg" id="current-date4"></div>
+                <div class="date arg" id="current-date4" onclick="showInfoArg()"></div>
                 <div><img src="7.png" class="arimg"></div>
                 <div><img src="7.1.png" class="arimg arimg2"></div>
-                <div class="date ar" id="current-date5"></div>
+                <div class="date ar" id="current-date5" onclick="showInfoAr()"></div>
                 <div><img src="8.png" class="omimg"></div>
-                <button onclick="updateTime()" id="update-btn" class="button2">Обновлять время</button>
-                <button onclick="stopupdateTime()" id="stopupdate-btn" disabled class="button3">Остановить время</button>
+                <button onclick="updateTime()" id="update-btn" class="button2 button">Обновлять время</button>
+                <button onclick="stopupdateTime()" id="stopupdate-btn" disabled class="button3 button">Остановить время</button>
                 <div><img src="8.1.png" class="omimg omimg2"></div>
-                <div class="date om" id="current-date6"></div>
+                <div class="date om" id="current-date6" onclick="showInfoOm()"></div>
         </div>
         <div>
             <button onclick="startChangeColors()" id="start-btn" class="button button1">Старт</button>
-            <button onclick="stopChangeColors()" id="stop-btn" disabled class="button">Стоп</button>
+            <button onclick="stopChangeColors()" id="stop-btn" disabled class="button button4">Стоп</button>
         </div>
     </main>
     <footer>
