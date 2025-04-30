@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 6.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showDiagramm() {
+            const minTemperatures = [];
+            const maxTemperatures = [];
+
+            for (let i = 0; i < 30; i++) {
+                minTemperatures.push(Math.floor(Math.random() * 15) + 5); 
+                maxTemperatures.push(minTemperatures[i] + Math.floor(Math.random() * 15) + 10); 
+            }
+
+            const bars = document.getElementsByClassName('bar');
+            const bars1 = document.getElementsByClassName('bar1');
+            const diagHeight = document.getElementById('diag').clientHeight;
+            const maxTemp = Math.max(...maxTemperatures);
+            const minTemp = Math.max(...minTemperatures);
+            const k = diagHeight / maxTemp * 0.8;  
+            const k1 = diagHeight / minTemp * 0.3; 
+    
+            for (let i = 0; i < 30; i++) {
+                bars[i].style.height = (k * maxTemperatures[i]) + 'px';
+                bars1[i].style.height = (k1 * minTemperatures[i]) + 'px';
+                bars1[i].dataset.min = minTemperatures[i];
+                bars[i].dataset.max = maxTemperatures[i];
+                bars[i].innerHTML = `${maxTemperatures[i]}` + '\n°C';
+                bars1[i].innerHTML = `${minTemperatures[i]}` + '\n°C';;
+            }
+        }
+    
+        function pullDay() {
+            const day = parseInt(document.getElementById('vvod').value) - 1;
+            const bars = document.getElementsByClassName('bar');
+            const bars1 = document.getElementsByClassName('bar1');
+            let info = document.getElementById('temp');
+
+            if (day >= 0 && day < bars.length) {
+                for (let i = 0; i < bars.length; i++) {
+                    if (i == day) {
+                        bars[i].style.opacity = '1'
+                        bars[i].style.transition = '1s'
+                        bars1[i].style.opacity = '1'
+                        bars1[i].style.transition = '1s'
+                    } else {
+                        bars[i].style.opacity = '0.1'
+                        bars[i].style.transition = '1s'
+                        bars1[i].style.opacity = '0.1'
+                        bars1[i].style.transition = '1s'
+                    }
+                }
+                const minTemp = bars1[day].dataset.min;
+                const maxTemp = bars[day].dataset.max;
+                info.innerText = `Минимальная температура: ${minTemp}°C\n Максимальная температура: ${maxTemp}°C`;
+            } else {
+                info.innerText = 'Введите пожалуйста номер дня от 1 до 30!'
+            }
+        }       
+        function clearStyle() {
+            let info = document.getElementById('temp');
+            let input = document.getElementById('vvod');
+            const bars = document.getElementsByClassName('bar');
+            const bars1 = document.getElementsByClassName('bar1');
+            info.innerText = '';
+            input.value =  '';
+
+            for (let i = 0; i < bars.length; i++) {
+                bars[i].style.opacity = '1';
+                bars1[i].style.opacity = '1';
+            }
+        }
+    </script>
+    <style>
+        .bar {
+            height: 10px;
+            width: 15px;
+            background-color: rgb(255, 180, 40);
+            border: 2px solid black;
+            color: black;
+            font-size: 15px;
+            justify-content: center;
+            margin-right: 1px;
+        }
+        .block {
+            background-color: rgba(212, 244, 201, 0.714);
+            width: 1262px;
+            height: 400px;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid black;
+            display: flex;
+            align-items: flex-end;
+        }
+        .bar1 {
+            height: 10px;
+            width: 10px;
+            background-color: rgb(108, 198, 228);
+            border: 2px solid black;
+            color: black;
+            justify-content: center;
+            margin-left: 0px;
+            margin-right: 10px;
+            font-size: 15px;
+        }
+        .zag {
+            position: absolute;
+            color: black;
+            margin-left: 380px;
+            margin-bottom: 360px;
+            font-size: 32px;
+        }
+        .temp {
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 70px;
+        }
+        .vvod {
+            border: 2px solid black;
+            height: 30px;
+            width: 200px;
+            font-size: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: flex;
+            margin: auto;
+            margin-top: 3px;
+        }
+        .knopka {
+            margin-left: 780px;
+            border: 2px solid black;
+            border-radius: 10px;
+            height: 60px;
+            width: 160px;
+            text-align: center;
+            font-size: 20px;
+            margin-top: 2px;
+            position: absolute;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .knopka:hover {
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.573);
+            transition: 0.2s;
+        }
+        .knopka:active {
+            height: 55px;
+            width: 155px;
+            transition: 0.2s;
+        }
+        .knopka1 {
+            margin-left: 600px;
+        }
+    </style>
+</head>
+<body onload="showDiagramm()">
+    <header>
+        НГТУ, ФБ, Лабораторная 6
+    </header>
+    <main>
+        <div class="block" id="diag">
+            <h1 class="zag">Диаграмма погоды за месяц</h1>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+            <div class="bar"></div>
+            <div class="bar1"></div>
+        </div>
+        <input class="vvod" type="number" id="vvod" placeholder="Введите номер дня">
+        <button class="knopka" onclick="pullDay()">Показать температуру</button>
+        <button class="knopka knopka1" onclick="clearStyle()">Очистить</button>
+        <div class="temp" id="temp"></div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
