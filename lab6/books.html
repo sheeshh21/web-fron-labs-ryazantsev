@@ -10,40 +10,41 @@
     <link rel="icon" href="../favicon-32x32.png">
     <script src="books.js"></script>
     <script>
-        function showBooks() {
-        const booksList = document.getElementById('bookList');
-        books.forEach(book => {
-        let style = "";
-        let info = "";
-        let bestseller = "";
+    function showBooks() {
+        const bookList = document.getElementById('bookList');
 
-        if (book.dostup) {
-            style += "opacity: 0.5;";
-            info += `<div class='nedostup'>Этой книги сейчас нет в наличии!</div>`;
+        for (let i = 0; i < books.length; i++) {
+            let style = "";
+            let info = "";
+            let bestseller = "";
+
+            if (books[i].dostup) {
+                style += "opacity: 0.5;"; 
+                info += "<div class='nedostup'>Этой книги сейчас нет в наличии!</div>";
+            }
+
+            if (books[i].bestseller) {
+                bestseller = "<sup class='bestseller'>бестселлер!</sup>";
+            }
+
+            bookList.innerHTML += `
+                <div style="${style}" class="block">
+                    <b>${books[i].author}</b> ${bestseller}<br>
+                    <i>${books[i].name}</i> — ${books[i].year}<br>
+                    Цена: <b>${books[i].price}</b> руб.
+                    ${info}
+                </div>
+            `;
         }
-
-        if (book.bestseller) {
-            bestseller = `<sup class='bestseller'>бестселлер!</sup>`;
-        }
-
-        booksList.innerHTML += `
-            <div style="${style}" class='block'>
-                <li>
-                    <b>${book.author}</b> ${bestseller}<br>
-                    <i>${book.name}</i> — ${book.year}
-                    <b>${book.price}</b>
-                </li>
-                ${info}
-            </div>
-        `;
-    });
-}
-    </script>
+    }
+</script>
     <style>
         h1 {
             color: black;
             text-align: center;
-            text-decoration: underline dotted black;
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+            background-color: rgba(174, 250, 174, 0.692);
         }
         div {
             color: black;
@@ -65,8 +66,17 @@
             margin: 10px auto;
             padding: 10px;
             border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.397);
-            
+            background-color: rgba(188, 231, 159, 0.5);
+        }
+        .block1 {
+            background-color: rgba(255, 251, 219, 0.589);
+            margin-left: 500px;
+            margin-right: 500px;
+            margin-bottom: 100px;
+            padding-bottom: 50px;
+            padding-top: 50px;
+            border: 3px solid black;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -75,8 +85,10 @@
         НГТУ, ФБ, Лабораторная 6
     </header>
     <main>
-        <h1>Список книг</h1>
-        <div id="bookList">
+        <div class="block1">
+            <h1>Список книг</h1>
+            <div id="bookList"></div>
+            <h1>Список книг</h1>
         </div>
     </main>
     <footer>

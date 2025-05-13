@@ -29,7 +29,7 @@ const books = [
         year: 1949, 
         price: "(350₽)", 
         bestseller: true, 
-        dostup: false 
+        dostup: true 
     },
     { 
         author: "Дж.К. Роулинг", 
