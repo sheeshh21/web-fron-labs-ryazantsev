@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 7.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script src="promotion-data.js"></script>
+    <script>
+    function showPromotion() {
+        let table = document.getElementById('promotion');
+        let block = document.getElementById('block');
+        let zagl = document.getElementById('zagl');
+        let artgen = document.getElementById('artgen');
+        let artgen1 = document.getElementById('artgen1');
+        let artgen2 = document.getElementById('artgen2');
+        let artgen3 = document.getElementById('artgen3');
+        table.innerHTML = `    
+                    <tr>
+                        <td class='bord'><b>Дата</b></td>
+                        <td class='bord'><b>Цена</b></td>
+                        <td class='bord'><b>Разница</b></td>
+                    </tr>
+                `;
+        for(let i = 0; i < price.length; i++) {
+            let tekPrice = price[i];
+            let itogPrice = price[i - 1];
+            let raznica;
+            
+            if (i > 0) {
+                raznica = tekPrice - itogPrice;
+            } 
+
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+
+            td.innerText = price[i] + '₽';
+            td2.innerText = date[i];
+
+            if (isNaN(raznica)) {
+                td3.innerText = '-';
+            } 
+
+            else {
+                td3.innerText = raznica.toFixed(2);
+            }
+
+            if (raznica > 0) {
+                td3.style.color = 'green'
+                td3.style.fontWeight = 'bold'
+            }
+            
+            if (raznica < 0) {
+                td3.style.color = 'red'
+                td3.style.fontWeight = 'bold'
+            }
+
+            tr.appendChild(td2);
+            tr.appendChild(td);
+            tr.appendChild(td3);
+            table.appendChild(tr);
+            promotion.style.border = '2px solid black'
+            td.style.border = '2px solid black'
+            td2.style.border = '2px solid black'
+            td3.style.border = '2px solid black'
+            td.style.padding = '10px'
+            block.style.backgroundColor = 'white';
+            block.style.border = '2px solid black';
+            block.style.borderRadius = '10px';
+            zagl.innerHTML = 'Курс акций компании ИСКЧ';
+            zagl.style.borderTop = '2px solid';
+            zagl.style.borderBottom = '2px solid';
+            zagl.style.padding = '10px';
+            zagl.style.backgroundColor = 'rgb(203, 250, 203)';
+            zagl.style.marginBottom = '10px';
+            artgen.style.display = 'block';
+            artgen1.style.display = 'block';
+            artgen2.style.display = 'block';
+            artgen3.style.display = 'block';
+            
+        }
+
+        let sum = 0;
+        let detail = document.getElementById('average');
+        let detail2 = document.getElementById('min');
+        let detail3 = document.getElementById('max');
+        detail3.style.borderTop = '2px solid';
+        detail3.style.borderBottom = '2px solid';
+        detail3.style.padding = '10px';
+        detail3.style.backgroundColor = 'rgb(203, 250, 203)';
+        detail3.style.marginBottom = '10px';
+        detail.style.borderTop = '2px solid';
+        detail.style.borderBottom = '2px solid';
+        detail.style.padding = '10px';
+        detail.style.backgroundColor = 'rgb(203, 250, 203)';
+        detail.style.marginBottom = '10px';
+        detail.style.marginTop = '10px';
+        detail2.style.borderTop = '2px solid';
+        detail2.style.borderBottom = '2px solid';
+        detail2.style.padding = '10px';
+        detail2.style.backgroundColor = 'rgb(203, 250, 203)';
+        detail2.style.marginBottom = '10px';
+        
+
+        for(let i = 0; i < price.length; i++) {
+            sum += price[i];
+        }
+        
+        let average = sum / price.length;
+        let min = Math.min(...price);
+        let max = Math.max(...price);
+        average = average.toFixed(2) + '₽';
+        detail.innerHTML = `Среднее значение акций: ${average}`;
+        detail2.innerHTML = `Минимальное значение акций: ${min}₽`;
+        detail3.innerHTML = `Максимальное значение акций: ${max}₽`;
+
+        let button = document.getElementById('button');
+        button.style.display = 'none';
+    }
+    </script>
+    <style>
+        .text {
+            color: black;
+            text-align: center;
+        }
+        .bord {
+            border: 2px solid black;
+        }
+        .zagl {
+            color: black;
+            text-align: center;
+            font-weight: bold;
+        }
+        table {
+            color: black;
+            margin: 0 auto;
+            text-align: center;
+        }
+        td {
+            background-color: rgb(203, 250, 203);
+        }
+        button {
+            height: 60px;
+            width: 170px;
+            margin: 0 auto;
+            display: block;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: lightyellow;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        button:hover {
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.432);
+            transition: 0.3s;
+            scale: 1.05;
+        }
+        button:active {
+            scale: 0.9;
+            transition: 0.3s;
+            box-shadow: 0 0 0;
+        }
+        .block {
+           margin-left: 550px;
+           margin-right: 550px;
+           padding: 30px;
+           padding-left: 0px;
+           padding-right: 0px;
+           margin-top: 20px;
+        }
+        .artgen {
+            display: none;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 40px;
+        }
+        .artgen1 {
+            display: none;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 610px;
+            transform: scaleX(-1);
+        }
+        .artgen2 {
+            display: none;
+            position: absolute;
+            margin-top: 300px;
+            margin-left: 40px;
+        }
+        .artgen3 {
+            display: none;
+            position: absolute;
+            margin-top: 300px;
+            margin-left: 610px;
+            transform: scaleX(-1);  
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+    <main>
+        <div class="block" id="block">
+            <button id="button" onclick="showPromotion()">Курс доллара</button>
+            <div class="zagl" id="zagl"></div>
+            <img class="artgen" id="artgen" src="img/artgen1.png">
+            <img class="artgen1" id="artgen1" src="img/artgen1.png">
+            <img class="artgen2" id="artgen2" src="img/artgen1.png">
+            <img class="artgen3" id="artgen3" src="img/artgen1.png">
+            <table border="1" id="promotion"></table>
+            <div class="text" id="average"></div>
+            <div class="text" id="min"></div>
+            <div class="text" id="max"></div>
+        </div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
