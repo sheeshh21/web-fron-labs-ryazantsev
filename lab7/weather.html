@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 7.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,apparent_temperature,precipitation_probability,cloud_cover,wind_speed_10m&timezone=Asia%2FBangkok';
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                }) 
+                .then(function(json) {
+                    let date = json.hourly.time[8]
+                    let hour = date.slice(-5)
+                    let ispdate = date.slice(0, 10)
+                    let temp = json.hourly.temperature_2m[8]
+                    let apparent_temperature = json.hourly.apparent_temperature[8]
+                    let cloud_cover = json.hourly.cloud_cover[8]
+                    let precipitation_probability = json.hourly.precipitation_probability[8]
+                    let wind_speed = json.hourly.wind_speed_10m[8]
+                    let img = document.getElementById('img');
+                    let img1 = document.getElementById('img1');
+                    let img2 = document.getElementById('img2');
+                    let weather1 = document.getElementById('weather1');
+                    let weather2 = document.getElementById('weather2');
+                    let weather3 = document.getElementById('weather3');
+                    let details1 = document.getElementById('details1');
+                    let details2 = document.getElementById('details2');
+                    let details3 = document.getElementById('details3');
+                    let znach = document.getElementById('znach');
+                    let znach1 = document.getElementById('znach1');
+                    let znach2 = document.getElementById('znach2');
+                    let znach3 = document.getElementById('znach3');
+                    let znach4 = document.getElementById('znach4');
+                    let znach5 = document.getElementById('znach5');
+                    let znach6 = document.getElementById('znach6');
+                    let znach7 = document.getElementById('znach7');
+                    let znach8 = document.getElementById('znach8');
+                    let znach9 = document.getElementById('znach9');
+                    let znach10 = document.getElementById('znach10');
+                    let znach11 = document.getElementById('znach11');
+                    let h1 = document.getElementById('h1');
+                    let polosa = document.getElementById('polosa');
+                    let polosa1 = document.getElementById('polosa1');
+                    
+
+                    document.getElementById('date').innerHTML = ispdate + ' в ' + hour;
+                    document.getElementById('temp').innerHTML =  '+' + temp + '°C';
+                    document.getElementById('apparent_temperature').innerHTML = 'Ощущается как — ' + apparent_temperature + '°C';
+                    document.getElementById('cloud_cover').innerHTML = 'Облачность — ' + cloud_cover + '%';
+                    
+                    if(precipitation_probability == 0) {
+                        document.getElementById('precipitation_probability').innerHTML = 'Осадки — ' + 'нет';
+                    }
+                    else {
+                        document.getElementById('precipitation_probability').innerHTML = 'Осадки ' + 'есть';
+                    }
+
+                    document.getElementById('wind_speed').innerHTML = 'Скорость ветра — ' + wind_speed + ' м/c';
+                
+                    img.style.display = 'block'
+                    img1.style.display = 'block'
+                    img2.style.display = 'block'
+                    weather1.style.padding = '20px'
+                    weather2.style.padding = '20px'
+                    weather3.style.padding = '20px'
+                    details1.style.padding = '12px'
+                    details2.style.padding = '12px'
+                    details3.style.padding = '12px'
+                    znach.style.padding = '3px'
+                    znach1.style.padding = '3px'
+                    znach2.style.padding = '3px'
+                    znach3.style.padding = '3px'
+                    znach4.style.padding = '3px'
+                    znach5.style.padding = '3px'
+                    znach6.style.padding = '3px'
+                    znach7.style.padding = '3px'
+                    znach8.style.padding = '3px'
+                    znach9.style.padding = '3px'
+                    znach10.style.padding = '3px'
+                    znach11.style.padding = '3px' 
+                    h1.style.display = 'block'
+                    polosa.style.display = 'block'
+                    polosa1.style.display = 'block'
+
+                    let date1 = json.hourly.time[12]
+                    let hour1 = date1.slice(-5)
+                    let ispdate1 = date.slice(0, 10)
+                    let temp1 = json.hourly.temperature_2m[12]
+                    let apparent_temperature1 = json.hourly.apparent_temperature[12]
+                    let cloud_cover1 = json.hourly.cloud_cover[12]
+                    let precipitation_probability1 = json.hourly.precipitation_probability[12]
+                    let wind_speed1 = json.hourly.wind_speed_10m[12]
+                    
+                    document.getElementById('date1').innerHTML = ispdate + ' в ' + hour1;
+                    document.getElementById('temp1').innerHTML =  '+' + temp1 + '°C';
+                    document.getElementById('apparent_temperature1').innerHTML = 'Ощущается как — ' + apparent_temperature1 + '°C';
+                    document.getElementById('cloud_cover1').innerHTML = 'Облачность — ' + cloud_cover1 + '%';
+                    
+                    if(precipitation_probability == 0) {
+                        document.getElementById('precipitation_probability1').innerHTML = 'Осадки — ' + 'нет';
+                    }
+                    else {
+                        document.getElementById('precipitation_probability1').innerHTML = 'Осадки — ' + 'есть';
+                    }
+
+                    document.getElementById('wind_speed1').innerHTML = 'Скорость ветра — ' + wind_speed1 + ' м/c';
+                
+                    let date2 = json.hourly.time[20]
+                    let hour2 = date2.slice(-5)
+                    let ispdate2 = date.slice(0, 10)
+                    let temp2 = json.hourly.temperature_2m[20]
+                    let apparent_temperature2 = json.hourly.apparent_temperature[20]
+                    let cloud_cover2 = json.hourly.cloud_cover[20]
+                    let precipitation_probability2 = json.hourly.precipitation_probability[20]
+                    let wind_speed2 = json.hourly.wind_speed_10m[20]
+                    
+                    document.getElementById('date2').innerHTML = ispdate + ' в ' + hour2;
+                    document.getElementById('temp2').innerHTML =  '+' + temp2 + '°C';
+                    document.getElementById('apparent_temperature2').innerHTML = 'Ощущается как —' + apparent_temperature2 + '°C';
+                    document.getElementById('cloud_cover2').innerHTML = 'Облачность — ' + cloud_cover2 + '%';
+                    
+                    if(precipitation_probability == 0) {
+                        document.getElementById('precipitation_probability2').innerHTML = 'Осадки — ' + 'нет';
+                    }
+                    else {
+                        document.getElementById('precipitation_probability2').innerHTML = 'Осадки — ' + 'есть';
+                    }
+                    
+                    document.getElementById('wind_speed2').innerHTML = 'Скорость ветра — ' + wind_speed2 + ' м/c';
+                })
+        }
+    </script>
+    <style>
+        h1{
+            display: none;
+            color: rgb(49, 49, 49);
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.247);
+        }
+        .polosa {
+            width: 30%;
+            height: 2px; 
+            background-color: rgb(49, 49, 49);
+            margin: 20px auto;
+            opacity: 0.3;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.247);
+            display: none;
+        }
+        .polosa1 {
+            width: 23%;
+        }
+        .block {
+            display: flex;
+            margin: 0 auto;
+            gap: 15px;
+            max-width: 900px;
+        }
+        .weather1 {
+            background: linear-gradient(135deg, #72c2ff, #86f0ff);
+        }
+        .weather2 {
+            background: linear-gradient(135deg, #a6ff9a, #c4fac4);
+        }
+        .weather3 {
+            background: linear-gradient(135deg, #ffa69a, #fad3c4);
+        }
+        .weather {
+            border-radius: 12px;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.144);
+            transition: 0.3s;
+        }
+        .weather:hover {
+            scale: 1.01;
+            transform: translateY(-5px);
+            cursor: pointer;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.363);
+        }
+        .weather:active {
+            scale: 0.97;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.144);
+        }
+        .details {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.144);
+        }
+        .znach {
+            font-size: 14px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.281);
+        }
+        .gradus {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 34px;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.281);
+        }
+        .date {
+            color: rgb(255, 255, 255);
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 16px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.548);
+            padding-bottom: 6px;
+            font-weight: bold;
+        }
+        .info {
+            color: black; 
+        }
+        .img {
+            height: 50px;
+            width: 50px;
+            display: none;
+        }
+        button {
+            height: 60px;
+            width: 180px;
+            margin: 0 auto;
+            display: block;
+            border: 2px solid rgb(140, 117, 181);;
+            border-radius: 10px;
+            background: linear-gradient(160deg, rgb(140, 117, 181), rgb(187, 167, 224));
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+            margin-top: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.192);
+        }
+        button:hover {
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.432);
+            transition: 0.3s;
+            scale: 1.05;
+        }
+        button:active {
+            scale: 0.9;
+            transition: 0.3s;
+            box-shadow: 0 0 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+    <main>
+        <button onclick="getEuroExchangeRate()">Прогноз погоды</button>
+        <div class="polosa polosa1" id="polosa1"></div>
+        <h1 id="h1">Прогноз погоды за разное время</h1>
+        <div class="polosa" id="polosa"></div>
+        <div class="block">
+            <div class="weather1 weather" id="weather1">
+                <div class="date" id="date"></div>
+                <img src="img/obl.png" class="img" id="img">
+                <div class="gradus" id="temp"></div>
+                <div class="details" id="details1">
+                    <div class="znach" id="znach">
+                        <div class="value" id="apparent_temperature"></div>
+                    </div>
+                    <div class="znach" id="znach1">
+                        <div class="value" id="cloud_cover"></div>
+                    </div>
+                    <div class="znach" id="znach2">
+                        <div class="value" id="precipitation_probability"></div>
+                    </div>
+                    <div class="znach" id="znach3">
+                        <div class="value" id="wind_speed"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="weather2 weather" id="weather2">
+                <div class="date" id="date1"></div>
+                <img src="img/soln.png" class="img" id="img1">
+                <div class="gradus" id="temp1"></div>
+                <div class="details" id="details2">
+                    <div class="znach" id="znach4">
+                        <div class="value" id="apparent_temperature1"></div>
+                    </div>
+                    <div class="znach" id="znach5">
+                        <div class="value" id="cloud_cover1"></div>
+                    </div>
+                    <div class="znach" id="znach6">
+                        <div class="value" id="precipitation_probability1"></div>
+                    </div>
+                    <div class="znach" id="znach7">
+                        <div class="value" id="wind_speed1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="weather3 weather" id="weather3"> 
+                <div class="date" id="date2"></div>
+                <img src="img/grz.png" class="img" id="img2">
+                <div class="gradus" id="temp2"></div>
+                <div class="details" id="details3">
+                    <div class="znach" id="znach8">
+                        <div class="value" id="apparent_temperature2"></div>
+                    </div>
+                    <div class="znach" id="znach9">
+                        <div class="value" id="cloud_cover2"></div>
+                    </div>
+                    <div class="znach" id="znach10">
+                        <div class="value" id="precipitation_probability2"></div>
+                    </div>
+                    <div class="znach" id="znach11">
+                        <div class="value" id="wind_speed2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
