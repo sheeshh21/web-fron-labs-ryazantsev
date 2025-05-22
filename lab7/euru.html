@@ -17,6 +17,7 @@
                 }) 
                 .then(function(json) {
                     let date = json.Date;
+                    let ispdate = date.slice(0, 10)
                     let vivod = json.Valute.EUR.Value;
                     let previous = json.Valute.EUR.Previous;
                     let raznica = vivod - previous;
@@ -27,7 +28,7 @@
                     let zagl =  document.getElementById('zagl')
                     let link =  document.getElementById('link')
     
-                    document.getElementById('date').innerHTML = '<b>Дата получаемого курса</b></br>' + '<b>&#8595;</b></br>' + date;
+                    document.getElementById('date').innerHTML = '<b>Дата получаемого курса</b></br>' + '<b>&#8595;</b></br>' + ispdate;
                     document.getElementById('kurs').innerHTML = '<b>Курс евро (EUR)</b></br>' + '<b>&#8595;</b></br>' +  vivod;
                     document.getElementById('previous').innerHTML = '<b>Курс евро (EUR) за прошлую дату</b></br>' + '<b>&#8595;</b></br>' + previous;
                     

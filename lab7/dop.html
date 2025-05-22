@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рязанцев Александр Алексеевич. Лабораторная 7.</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function getWeather() {
+            let url = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,apparent_temperature,precipitation_probability,cloud_cover,wind_speed_10m,pressure_msl&current=temperature_2m,apparent_temperature,precipitation_probability,cloud_cover,wind_speed_10m,pressure_msl&timezone=Asia%2FBangkok';
+            
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                }) 
+                .then(function(json) {
+                    let temp = json.hourly.temperature_2m.slice(0, 24);
+                    let temp2 = json.current.temperature_2m; 
+                    let times = json.hourly.time.slice(0, 24);
+                    let cloud_coverDiag = json.hourly.cloud_cover.slice(0, 24);
+                    let cloud_coverDiag2 = json.current.cloud_cover;
+                    let apparent_temperature = json.current.apparent_temperature;
+                    let pressure_msl = json.current.pressure_msl;
+                    let cloud_cover = json.current.cloud_cover;
+                    let zagl = document.getElementById('zagl');
+                    let zagl2 = document.getElementById('zagl2');
+                    let block1 = document.getElementById('block1');
+                    let block2 = document.getElementById('block2');
+                    let block3 = document.getElementById('block3');
+                    let block4 = document.getElementById('block4');
+                    let block = document.getElementById('block');
+                    let h1 = document.getElementById('h1');
+                    let h2 = document.getElementById('h2');
+                    let tekushtempText = document.getElementById('tekushtempText');
+                    let pressure_mslText = document.getElementById('pressure_mslText');
+                    let apparent_temperatureText = document.getElementById('apparent_temperatureText');
+                    let cloud_coverText = document.getElementById('cloud_coverText');
+                    let img = document.getElementById('img');
+
+                    document.getElementById('pressure_msl').innerHTML = pressure_msl + ' PAh';
+                    document.getElementById('cloud_cover').innerHTML = cloud_cover + '%';
+                    document.getElementById('tekushtemp').innerHTML =  '+' + temp2 + '°C';
+                    document.getElementById('apparent_temperature').innerHTML = '+' + apparent_temperature + '°C';
+                
+                    h1.style.display = 'block'
+                    h2.style.display = 'block'
+                    tekushtempText.style.display = 'block'
+                    apparent_temperatureText.style.display = 'block'
+                    pressure_mslText.style.display = 'block'
+                    cloud_coverText.style.display = 'block'
+                    block.style.padding = '90px 60px 50px 60px'
+                    block.style.marginTop = '10px'
+                    block1.style.padding = '15px 25px 15px 25px'
+                    block2.style.padding = '15px 25px 15px 25px'
+                    block3.style.padding = '15px 25px 15px 25px'
+                    block4.style.padding = '15px 25px 15px 25px'
+                    img.style.display = 'block'
+                    zagl.style.display = 'block'
+                    zagl2.style.display = 'block'
+
+                    createDiag(times, temp, temp2);
+                    createDiag2(times, cloud_coverDiag, cloud_coverDiag2)
+                });
+        }
+        
+        function createDiag(labels, forecastData, currentTemp) {
+            let chartContainer = document.getElementById('tempDiag');
+            let button = document.getElementById('button');
+            
+            let allTemps = [...forecastData, currentTemp];
+            let maxTemp = Math.max(...allTemps);
+            let minTemp = Math.min(...allTemps);
+            let range = maxTemp - minTemp;
+            
+            let diag = document.createElement('div');
+            diag.style.display = 'flex';
+            diag.style.margin = 'auto';
+            diag.style.height = '300px';
+            diag.style.alignItems = 'flex-end';
+            diag.style.gap = '5px';
+            diag.style.boxShadow = '2px 2px 10px rgba(0, 0, 0, 0.647)';
+            diag.style.borderRadius = '10px';
+            diag.style.width = '47%';
+            diag.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            diag.style.position = 'relative';
+            diag.style.padding = '10px 5px 0 5px'
+            button.style.display = 'none';
+            
+            forecastData.forEach(function(forecastValue, index) {
+                let forecastColumn = document.createElement('div');
+                let heightPercent = ((forecastValue - minTemp) / range) * 90 + 10;
+                
+                forecastColumn.style.width = '30px';
+                forecastColumn.style.height = `${heightPercent}%`;
+                forecastColumn.style.backgroundColor = '#3498db';
+                forecastColumn.style.position = 'relative';
+                forecastColumn.style.display = 'flex';
+                forecastColumn.style.flexDirection = 'column';
+                forecastColumn.style.justifyContent = 'flex-end';
+                forecastColumn.style.alignItems = 'center';
+                forecastColumn.style.border = '1px solid black';
+                forecastColumn.style.borderRadius = '2px';
+
+                let forecastValueLabel = document.createElement('div');
+                forecastValueLabel.textContent = forecastValue;
+                forecastValueLabel.style.fontSize = '10px';
+                forecastValueLabel.style.marginBottom = '5px';
+                
+                forecastColumn.appendChild(forecastValueLabel);
+                diag.appendChild(forecastColumn);
+            });
+
+            let currentColumn = document.createElement('div');
+            let currentHeightPercent = ((currentTemp - minTemp) / range) * 90 + 10;
+            
+            currentColumn.style.width = '30px';
+            currentColumn.style.height = `${currentHeightPercent}%`;
+            currentColumn.style.backgroundColor = '#2c3e50';
+            currentColumn.style.position = 'relative';
+            currentColumn.style.display = 'flex';
+            currentColumn.style.flexDirection = 'column';
+            currentColumn.style.justifyContent = 'flex-end';
+            currentColumn.style.alignItems = 'center';
+            currentColumn.style.border = '1px solid black';
+            currentColumn.style.borderRadius = '2px';
+            
+            let currentValueLabel = document.createElement('div');
+            currentValueLabel.textContent = currentTemp;
+            currentValueLabel.style.fontSize = '10px';
+            currentValueLabel.style.marginBottom = '5px';
+            
+            currentColumn.appendChild(currentValueLabel);
+            diag.appendChild(currentColumn);
+            chartContainer.appendChild(diag);
+        }
+
+        function createDiag2(labels, forecastData, currentTemp) {
+            let chartContainer = document.getElementById('cloudcoverDiag');
+            let button = document.getElementById('button');
+            
+            let allTemps = [...forecastData, currentTemp];
+            let maxTemp = Math.max(...allTemps);
+            let minTemp = Math.min(...allTemps);
+            let range = maxTemp - minTemp;
+            
+            let diag = document.createElement('div');
+            diag.style.display = 'flex';
+            diag.style.margin = 'auto';
+            diag.style.height = '300px';
+            diag.style.alignItems = 'flex-end';
+            diag.style.gap = '5px';
+            diag.style.boxShadow = '2px 2px 10px rgba(0, 0, 0, 0.647)';
+            diag.style.borderRadius = '10px';
+            diag.style.width = '47%';
+            diag.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            diag.style.position = 'relative';
+            diag.style.padding = '10px 5px 0 5px'
+            button.style.display = 'none';
+            
+            forecastData.forEach(function(forecastValue, index) {
+                let forecastColumn = document.createElement('div');
+                let heightPercent = ((forecastValue - minTemp) / range) * 90 + 10;
+                
+                forecastColumn.style.width = '30px';
+                forecastColumn.style.height = `${heightPercent}%`;
+                forecastColumn.style.backgroundColor = '#3498db';
+                forecastColumn.style.position = 'relative';
+                forecastColumn.style.display = 'flex';
+                forecastColumn.style.flexDirection = 'column';
+                forecastColumn.style.justifyContent = 'flex-end';
+                forecastColumn.style.alignItems = 'center';
+                forecastColumn.style.border = '1px solid black';
+                forecastColumn.style.borderRadius = '2px';
+
+                let forecastValueLabel = document.createElement('div');
+                forecastValueLabel.textContent = forecastValue;
+                forecastValueLabel.style.fontSize = '10px';
+                forecastValueLabel.style.marginBottom = '5px';
+                
+                forecastColumn.appendChild(forecastValueLabel);
+                diag.appendChild(forecastColumn);
+            });
+
+            let currentColumn = document.createElement('div');
+            let currentHeightPercent = ((currentTemp - minTemp) / range) * 90 + 10;
+            
+            currentColumn.style.width = '30px';
+            currentColumn.style.height = `${currentHeightPercent}%`;
+            currentColumn.style.backgroundColor = '#2c3e50';
+            currentColumn.style.position = 'relative';
+            currentColumn.style.display = 'flex';
+            currentColumn.style.flexDirection = 'column';
+            currentColumn.style.justifyContent = 'flex-end';
+            currentColumn.style.alignItems = 'center';
+            currentColumn.style.border = '1px solid black';
+            currentColumn.style.borderRadius = '2px';
+            
+            let currentValueLabel = document.createElement('div');
+            currentValueLabel.textContent = currentTemp;
+            currentValueLabel.style.fontSize = '10px';
+            currentValueLabel.style.marginBottom = '5px';
+            
+            currentColumn.appendChild(currentValueLabel);
+            diag.appendChild(currentColumn);
+            chartContainer.appendChild(diag);
+        }
+    </script>
+    <style>
+        div {
+            color: black;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+        #block {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            display: flex;
+            margin: 0 auto;
+            max-width: 700px;
+            gap: 40px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.26);
+        }
+        #h1 {
+            display: none;
+            position: absolute;
+            color: white;
+            font-size: 26px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin-left: 580px;
+            margin-top: 30px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.26);
+        }
+        #h2 {
+            display: none;
+            text-align: center;
+            color: #2c3e50;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.26);
+        }
+        .text {
+            display: none;
+            color: white;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            padding-bottom: 7px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.26);
+        }
+        .text2 {
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 22px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.26);
+        }
+        .block2 {
+            background-color: rgba(255, 255, 255, 0.2);
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.26);
+            transition: 0.3s scale;
+        }
+        .block2:hover {
+            scale: 1.05;
+            cursor: pointer;
+            transition: 0.3s scale;
+        }
+        #temperatureChart {
+            margin-top: 20px;
+        }
+        #img {
+            display: none;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            margin-top: 110px;
+            margin-left: 550px;
+        }
+        main {
+            padding-bottom: 100px;
+        }
+        .zagl {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        button {
+            height: 60px;
+            width: 180px;
+            margin: 0 auto;
+            display: block;
+            border: 2px solid rgb(140, 117, 181);;
+            border-radius: 10px;
+            background: linear-gradient(160deg, rgb(140, 117, 181), rgb(187, 167, 224));
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+            margin-top: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.192);
+        }
+        button:hover {
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.432);
+            transition: 0.3s;
+            scale: 1.05;
+        }
+        button:active {
+            scale: 0.9;
+            transition: 0.3s;
+            box-shadow: 0 0 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+    <main>
+        <button id="button" onclick="getWeather()">Прогноз погоды</button>
+        <h1 id="h2">Данные о погоде</h1>
+        <h1 id="h1">Текущая погода</h1>
+        <img src="img/term.png" id="img">
+        <div id="block">
+            <div class="block2" id="block1">
+                <div class="text" id="tekushtempText">Температура</div>
+                <div class="text2" id="tekushtemp"></div>
+            </div>
+            <div class="block2" id="block2">
+                <div class="text" id="pressure_mslText">Давление</div>
+                <div class="text2" id="pressure_msl"></div>
+            </div>
+            <div class="block2" id="block3"> 
+                <div class="text" id="cloud_coverText">Облачность</div>
+                <div class="text2" id="cloud_cover"></div>
+            </div>
+            <div class="block2" id="block4">
+                <div class="text" id="apparent_temperatureText">Ощущается как</div>
+                <div class="text2" id="apparent_temperature"></div>
+            </div>
+        </div>
+        <div class='zagl' id="zagl">Диаграмма температуры (прогноз и текущее значение)</div>
+        <div id="tempDiag"></div>
+        <div class='zagl' id="zagl2">Диаграмма облачности (прогноз и текущее значение)</div>
+        <div id="cloudcoverDiag"></div>
+    </main>
+    <footer>
+        &copy; Рязанцев Александр, ФБИ-31, 2-курс, 2025
+    </footer>
+</body>
+</html>
