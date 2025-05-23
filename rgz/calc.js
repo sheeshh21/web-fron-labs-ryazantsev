@@ -4,8 +4,8 @@ function getCurrency() {
             return response.json();
         })
         .then(function(data) {
-            usd = data.Valute.USD.Value;
-            document.getElementById('usd').textContent = 'Курс USD: ' + usd.toFixed(2) + ' руб.';
+            byn = data.Valute.BYN.Value;
+            document.getElementById('byn').textContent = 'Курс BYN: ' + byn.toFixed(2) + ' руб.';
             showDiag();
         })
 }
@@ -14,14 +14,14 @@ window.onload = function() {
     getCurrency();
 
     document.getElementById('rub').oninput = function() {
-        if(usd) {
-            document.getElementById('USD').value = (this.value / usd).toFixed(2);
+        if(byn) {
+            document.getElementById('BYN').value = (this.value / byn).toFixed(2);
         }
     };
     
-    document.getElementById('USD').oninput = function() {
-        if(usd) {
-            document.getElementById('rub').value = (this.value * usd).toFixed(2);
+    document.getElementById('BYN').oninput = function() {
+        if(byn) {
+            document.getElementById('rub').value = (this.value * byn).toFixed(2);
         }
     };
 };
@@ -31,10 +31,10 @@ function showDiag() {
     diag.innerHTML = '';
     let obshdays = 30;
     for (let i = 0; i < obshdays; i++) {
-        let value = usd * (1 + (Math.random() - 0.5) * 0.04);
+        let value = byn * (1 + (Math.random() - 0.5) * 0.04);
         let bar = document.createElement('div');
         bar.className = 'bar';
-        bar.style.height = (value / (usd * 0.5) * 140) + 'px';
+        bar.style.height = (value / (byn * 0.5) * 140) + 'px';
         bar.title = 'Курс: ' + value.toFixed(2);
         let days = obshdays - 1 - i;
         bar.dataset.days = days;
