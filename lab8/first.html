@@ -116,7 +116,7 @@
         <div class="app" id="app">
             <div class="block5">
                 <h1 :title="messageRus" style="font-weight: bold;">{{ message }}</h1>
-                <p class="block">Счётчик вайбика: {{ counter }}</p>
+                <p class="block">Счётчик: {{ counter }}</p>
                 <button style="width: 3rem; margin: 10px; border: 1px solid black;" @click="incCounter" class="btn btn-success" v-if="counter < 10">+</button>
                 <button style="width: 3rem; border: 1px solid black;" @click="decCounter" class="btn btn-danger" v-if="counter > 0">-</button>
             </div>
